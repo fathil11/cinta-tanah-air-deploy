@@ -50,7 +50,7 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => '',
+            'root' => '/',
             'url' => env('APP_URL'),
             'visibility' => 'public',
         ],
