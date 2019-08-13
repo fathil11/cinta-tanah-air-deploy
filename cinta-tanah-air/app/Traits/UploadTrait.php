@@ -9,7 +9,7 @@ trait UploadTrait
 {
     public function uploadOne(UploadedFile $uploadedFile, $folder = null, $disk = 'public', $filename = null)
     {
-        $folder = "../../" . $folder;
+        $folder = "../.." . $folder;
         // dd($folder);
         $name = !is_null($filename) ? $filename : str_random(25);
 
