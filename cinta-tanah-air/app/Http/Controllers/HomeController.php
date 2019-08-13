@@ -26,9 +26,7 @@ class HomeController extends Controller
     public function showHome()
     {
         $art_stat = $this->artStat();
-        if($art_stat->isEmpty()){
-        dd(1);
-        }
+
         return view('home.home', ['art_stat' => $art_stat]);
     }
 

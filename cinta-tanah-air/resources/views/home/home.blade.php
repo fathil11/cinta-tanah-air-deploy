@@ -85,8 +85,8 @@
         </div>
         <div class="row">
             <div class="col-sm-6 col-lg-4 col-xl-4 d-none d-sm-block d-lg-none">
-                @if ($art_stat->isEmpty())
                 <h2>Maaf, belum ada berita.</h2>
+                @if ($art_stat->isEmpty())
                 @endif
                 @foreach ($art_stat as $article)
                 <div class="single-home-blog">
