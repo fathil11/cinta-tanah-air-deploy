@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function showHome()
     {
-        dd(storage_path());
+        dd(public_path());
         $art_stat = $this->artStat();
 
         return view('home.home', ['art_stat' => $art_stat]);
