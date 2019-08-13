@@ -34,7 +34,8 @@ Berita {{ $category }}
                     @foreach ($articles as $article)
                     <article class="blog_item">
                         <div class="blog_item_img">
-                            <img class="card-img rounded-0" src="{{ asset('img/blog') . '/' . $article->banner_path }}"
+                            <img class="card-img rounded-0"
+                                src="{{ asset('cinta-tanah-air/public/img/blog') . '/' . $article->banner_path }}"
                                 alt="">
                             <a href="{{ url('lihat-artikel') . '/' . $article->slug }}" class="blog_item_date">
                                 <h3>{{ date('d', strtotime($article->created_at)) }}</h3>
