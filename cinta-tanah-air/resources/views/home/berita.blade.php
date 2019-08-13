@@ -53,7 +53,8 @@ Berita {{ $category }}
                                 @endphp
                                 {{ substr($tny_art, 0, 150) . "..." }}</p>
                             <ul class="blog-info-link">
-                                <li><a href="#"><i class="far fa-user"></i> @php
+                                <li><a href="#"><i class="far fa-user"></i>
+                                        @php
                                         $temp = array();
                                         foreach($article->category as $cats){
                                         $temp[] = $cats->category;

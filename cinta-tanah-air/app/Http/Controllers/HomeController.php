@@ -41,7 +41,7 @@ class HomeController extends Controller
 
     public function artStat()
     {
-        $articles = Article::where('status', 1)->whereDate('created_at', date("Y-m-d"))->take(2)->get();
+        $articles = Article::where('status', 1)->whereDate('created_at', date("Y-m-d"))->take(3)->get();
         return $articles;
     }
 

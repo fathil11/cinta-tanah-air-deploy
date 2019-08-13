@@ -85,13 +85,26 @@
         </div>
         <div class="row">
             <div class="col-sm-6 col-lg-4 col-xl-4 d-none d-sm-block d-lg-none">
+                @if ($articles->isEmpty())
+                <h2>Maaf, belum ada berita.</h2>
+                @endif
+                @foreach ($art_stat as $article)
                 <div class="single-home-blog">
                     <div class="card">
-                        <img src="img/blog/blog_3.png" class="card-img-top" alt="blog">
+                        <img src="{{ asset('img/blog') . '/' . $article->banner_path }}" class="card-img-top"
+                            alt="blog">
                         <div class="card-body">
-                            <a href="blog.html">Art, design</a> | <span> March 30, 2019</span>
-                            <a href="blog.html">
-                                <h5 class="card-title">Seasons form upon days may wont bring given herb sixth</h5>
+                            <a href="{{ url('lihat-artikel') . '/' . $article->slug }}">
+                                @php
+                                $temp = array();
+                                foreach($article->category as $cats){
+                                $temp[] = $cats->category;
+                                }
+                                $cat = implode(',', $temp)
+                                @endphp
+                                {{ $cat }}</a> | <span> {{ date('d F Y', strtotime($article->created_at)) }}</span>
+                            <a href="{{ url('lihat-artikel') . '/' . $article->slug }}">
+                                <h5 class="card-title">{{ $article->title }}</h5>
                             </a>
                             <ul>
                                 <li> <i class="ti-comments"></i>4 Comments</li>
@@ -100,58 +113,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-4">
-                <div class="single-home-blog">
-                    <div class="card">
-                        <img src="img/blog/blog_1.png" class="card-img-top" alt="blog">
-                        <div class="card-body">
-                            <a href="blog.html">Technology</a> | <span> March 30, 2019</span>
-                            <a href="blog.html">
-                                <h5 class="card-title">Seasons form upon days may wont bring given herb sixth</h5>
-                            </a>
-                            <ul>
-                                <li> <i class="ti-comments"></i>4 Comments</li>
-                                <li> <i class="ti-eye"></i>10 View</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-4">
-                <div class="single-home-blog">
-                    <div class="card">
-                        <img src="img/blog/blog_2.png" class="card-img-top" alt="blog">
-                        <div class="card-body">
-                            <a href="blog.html">Technology</a> | <span> March 30, 2019</span>
-                            <a href="blog.html">
-                                <h5 class="card-title">Very and third him beginning signs hath subdue make
-                                </h5>
-                            </a>
-                            <ul>
-                                <li> <i class="ti-comments"></i>4 Comments</li>
-                                <li> <i class="ti-eye"></i>10 View</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-4">
-                <div class="single-home-blog">
-                    <div class="card">
-                        <img src="img/blog/blog_3.png" class="card-img-top" alt="blog">
-                        <div class="card-body">
-                            <a href="blog.html">Technology</a> | <span> March 30, 2019</span>
-                            <a href="blog.html">
-                                <h5 class="card-title">Seasons form upon days may wont bring given herb sixth</h5>
-                            </a>
-                            <ul>
-                                <li> <i class="ti-comments"></i>4 Comments</li>
-                                <li> <i class="ti-eye"></i>10 View</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
