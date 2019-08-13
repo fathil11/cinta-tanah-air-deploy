@@ -60,7 +60,7 @@ class AdminController extends Controller
             $folder = asset('img/blog');
             // Make a file path where image will be stored [ folder path + file name + file extension]
             $filePath = $folder . '/' . $name . '.' . $image->getClientOriginalExtension();
-            dd($filePath);
+
             // Upload image
             if ($this->uploadOne($image, $folder, 'public', $name)) {
                 // Crop
