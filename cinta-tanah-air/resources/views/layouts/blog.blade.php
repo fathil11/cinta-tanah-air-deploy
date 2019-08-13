@@ -68,11 +68,11 @@
                 @foreach ($art_stat as $art)
                 <div class="media post_item">
                     <div class="col-md-5">
-                        <img class="img-fluid" src="{{ 'cinta-tanah-air/public/img/blog/' . $art->banner_path }}"
+                        <img class="img-fluid" src="{{ url('cinta-tanah-air/public/img/blog/') . $art->banner_path }}"
                             alt="post">
                     </div>
                     <div class="media-body">
-                        <a href="single-blog.html">
+                        <a href="{{ url('lihat-artikel') . $art->slug }}">
                             <h3>{{ $art->title }}</h3>
                         </a>
                         <p>{{ date('d F Y', strtotime($art->created_at)) }}</p>
