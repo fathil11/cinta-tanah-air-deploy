@@ -1,0 +1,51 @@
+.menu_fixed {
+    background-color: #cf4027;
+}
+
+.navbar-light .navbar-toggler {
+    background-color: #cf4027;
+}
+
+.btn_1 {
+    background-color: #cf4027;
+}
+
+.dropdown .dropdown-menu {
+    background-color: hsl(9, 82%, 57%);
+}
+
+.dropdown .dropdown-menu .dropdown-item {
+    background-color: hsl(9, 82%, 57%);
+}
+
+.footer-area .copyright_part_text a {
+    color: #cf4027;
+}
+
+.cta_part .cta_part_iner .cta_part_text p {
+    color: #cf4027;
+}
+
+.footer-area .btn {
+    background-color: #cf4027;
+}
+
+.breadcrumb:after {
+    opacity: 0;
+}
+
+.btn_1:hover {
+    box-shadow: 0px 10px 30px #cf4027;
+}
+
+.blog_item_img .blog_item_date {
+    background-color: #cf4027;
+}
+
+.button {
+    background-color: #cf3f26;
+}
+
+.button:hover {
+    background-color: hsl(9, 79%, 54%);
+}

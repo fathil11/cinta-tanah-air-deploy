@@ -1,0 +1,59 @@
+.bg-gradient-primary {
+    background: linear-gradient(87deg, #cf4027 0, #e26666 100%) !important;
+}
+
+.bg-gradient-defaultcustom {
+    background: linear-gradient(87deg, #fabc74 0, #fabc74 100%) !important;
+}
+
+.navbar-vertical.navbar-expand-md .navbar-nav .nav-link.active:before {
+    border-left: 2px solid #cf4027;
+}
+
+/* .text-light {
+    color: #f14040 !important;
+} */
+
+.bg-secondaryC {
+    background-color: #cf4027;
+}
+
+.cardcustom {
+    background-color: #f9f9f9;
+}
+
+.custom-input-judul {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    border-color: #d85448;
+    background-color: #d85448;
+}
+
+.badge-pill {
+    margin-left: 6px;
+}
+
+.btn-primary-log {
+    color: #fff;
+    border-color: #d34646;
+    background-color: #d34646;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+}
+
+.btn-primary-log:hover {
+    color: #fff;
+    border-color: hsl(249, 93%, 61%);
+    background-color: hsl(249, 93%, 61%);
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+}
+
+.alert-danger {
+    color: #fff;
+    border-color: #d34935;
+    background-color: #d54c3b;
+}
