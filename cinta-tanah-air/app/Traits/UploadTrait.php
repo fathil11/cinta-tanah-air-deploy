@@ -9,8 +9,8 @@ trait UploadTrait
 {
     public function uploadOne(UploadedFile $uploadedFile, $folder = null, $disk = 'public', $filename = null)
     {
+        dd($folder);
         $name = !is_null($filename) ? $filename : str_random(25);
-        // dd($disk);
 
         $file = $uploadedFile->storeAs($folder, $name . '.' . $uploadedFile->getClientOriginalExtension(), $disk);
 
