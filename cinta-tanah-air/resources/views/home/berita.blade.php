@@ -35,7 +35,7 @@ Berita {{ $category }}
                     <article class="blog_item">
                         <div class="blog_item_img">
                             <img class="card-img rounded-0"
-                                src="{{ '/cinta-tanah-air/public/img/blog/' . $article->banner_path }}" alt="">
+                                src="{{ url('cinta-tanah-air/public/img/blog') . '/' . $article->banner_path }}" alt="">
                             <a href="{{ url('lihat-artikel') . '/' . $article->slug }}" class="blog_item_date">
                                 <h3>{{ date('d', strtotime($article->created_at)) }}</h3>
                                 <p>{{ substr(date('F', strtotime($article->created_at)), 0, 3) }}</p>

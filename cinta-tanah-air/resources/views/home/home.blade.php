@@ -92,7 +92,7 @@
                 @foreach ($art_stat as $article)
                 <div class="single-home-blog">
                     <div class="card">
-                        <img src="{{ url('cinta-tanah-air/public/img/blog/') . $article->banner_path }}"
+                        <img src="{{ url('cinta-tanah-air/public/img/blog') . '/' . $article->banner_path }}"
                             class="card-img-top" alt="blog">
                         <div class="card-body">
                             <a href="{{ url('lihat-artikel') . '/' . $article->slug }}">
