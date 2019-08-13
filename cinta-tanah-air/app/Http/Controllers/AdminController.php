@@ -57,9 +57,9 @@ class AdminController extends Controller
             // Make a image name based on user name and current timestamp
             $name = str_slug($request->input('title')) . '_' . time();
             // Define folder path
-            $folder = 'img/blog';
+            $folder = 'img/blog/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
-            $filePath = $folder . '/' . $name . '.' . $image->getClientOriginalExtension();
+            $filePath = $folder .  $name . '.' . $image->getClientOriginalExtension();
 
             // Upload image
             if ($this->uploadOne($image, $folder, 'public', $name)) {
