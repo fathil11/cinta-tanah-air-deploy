@@ -80,14 +80,15 @@
             <div class="col-xl-5">
                 <div class="section_tittle text-center">
                     <h2>Berita Terbaru</h2>
+                    @if ($art_stat->isEmpty())
+                    <h3>Maaf, belum ada berita.</h3>
+                    @endif
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6 col-lg-4 col-xl-4 d-none d-sm-block d-lg-none">
-                <h2>Maaf, belum ada berita.</h2>
-                @if ($art_stat->isEmpty())
-                @endif
+
                 @foreach ($art_stat as $article)
                 <div class="single-home-blog">
                     <div class="card">
