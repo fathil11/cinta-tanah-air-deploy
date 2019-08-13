@@ -21,7 +21,7 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-require __DIR__.'/cinta-tanah-air/vendor/autoload.php';
+require __DIR__.'/../cinta-tanah-air/vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ require __DIR__.'/cinta-tanah-air/vendor/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/cinta-tanah-air/bootstrap/app.php';
+$app = require_once __DIR__.'/../cinta-tanah-air/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
