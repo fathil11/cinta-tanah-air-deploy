@@ -37,9 +37,9 @@ require __DIR__.'/cinta-tanah-air/vendor/autoload.php';
 
 $app = require_once __DIR__.'/cinta-tanah-air/bootstrap/app.php';
 
-$app->bind('path.public', function() {
-    return __DIR__;
-});
+// $app->bind('path.public', function() {
+//     return __DIR__;
+// });
 /*
 |--------------------------------------------------------------------------
 | Run The Application
