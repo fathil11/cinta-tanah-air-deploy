@@ -35,7 +35,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="{{ url('#') }}"> <img src="{{ url('img/logo.png') }}" alt="logo">
+                        <a class="navbar-brand" href="{{ url('') }}"> <img src="{{ url('img/logo.png') }}" alt="logo">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -88,7 +88,7 @@
             <div class="row justify-content-between">
                 <div class="col-sm-6 col-md-6 col-xl-3">
                     <div class="single-footer-widget footer_1">
-                        <a href="index.html"> <img src="img/footer_logo.png" alt=""> </a>
+                        <a href="#"> <img src="img/footer_logo.png" alt=""> </a>
                         <p>Kesadaran pergerakan & perjuangan cinta tanah air Indonesia “DIBANGUNKAN dari tidur” oleh
                             Lagu Kebangsaan Indonesia Raya .</p>
                     </div>
