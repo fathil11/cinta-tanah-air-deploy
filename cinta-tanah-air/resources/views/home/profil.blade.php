@@ -46,7 +46,7 @@ Profil Kami
                             <span class="contact-info__icon"><i class="ti-email"></i></span>
                             <div class="media-body">
                                 <h3>info@cintatanahair.id</h3>
-                                <p>Beri kami masukan .</p>
+                                <p>Beri kami saran dan masukan .</p>
                             </div>
                         </div>
                     </div>
