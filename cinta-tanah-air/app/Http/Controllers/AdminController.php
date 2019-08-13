@@ -58,6 +58,7 @@ class AdminController extends Controller
             $name = str_slug($request->input('title')) . '_' . time();
             // Define folder path
             $folder = 'img/blog/';
+            dd(storage_path());
             // Make a file path where image will be stored [ folder path + file name + file extension]
             $filePath = $folder .  $name . '.' . $image->getClientOriginalExtension();
 
