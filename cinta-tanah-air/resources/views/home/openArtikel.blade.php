@@ -43,7 +43,7 @@ Cinta Tanah Air
                 <h3>Penulis</h3>
                 <div class="blog-author">
                     <div class="media align-items-center">
-                        <img src="{{ 'cinta-tanah-air/public/img/blog/' . $article->author->profile_picture }}" alt="">
+                        <img src="{{ '/cinta-tanah-air/public/img/blog/' . $article->author->profile_picture }}" alt="">
                         <div class="media-body">
                             <a href="#">
                                 <h4>
