@@ -15,7 +15,7 @@ Cinta Tanah Air
                 <div class="single-post">
                     <div class="feature-img">
                         <img class="card-img rounded-0"
-                            src="{{'cinta-tanah-air/public/img/blog/' . $article->banner_path }}" alt="">
+                            src="{{'/cinta-tanah-air/public/img/blog/' . $article->banner_path }}" alt="">
                     </div>
                     <div class="blog_details">
                         <h2>{{ $article->title }}</h2>
