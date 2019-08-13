@@ -87,7 +87,8 @@ class HomeController extends Controller
     public function showProfil()
     {
         $cat_stat = $this->catStat();
-        return view('home.profil', ['cat_stat' => $cat_stat]);
+        $art_stat = $this->artStat();
+        return view('home.profil', ['cat_stat' => $cat_stat, 'art_stat' => $art_stat]);
     }
 
     /// Logout Function
