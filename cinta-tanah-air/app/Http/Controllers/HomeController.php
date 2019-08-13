@@ -25,7 +25,6 @@ class HomeController extends Controller
      */
     public function showHome()
     {
-        dd(asset('img'));
         $art_stat = $this->artStat();
 
         return view('home.home', ['art_stat' => $art_stat]);
