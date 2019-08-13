@@ -50,8 +50,8 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
-            'url' => env('APP_URL') . '/tes',
+            'root' => public_path(),
+            'url' => env('APP_URL'),
             'visibility' => 'public',
         ],
 
