@@ -26,7 +26,7 @@ Profil Kami
         <div class="row">
             <div class="col-lg-8 posts-list">
                 <div class="jumbotron">
-                    <div class="col-lg-4">
+                    <div class="col-md-8">
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="ti-home"></i></span>
                             <div class="media-body">
