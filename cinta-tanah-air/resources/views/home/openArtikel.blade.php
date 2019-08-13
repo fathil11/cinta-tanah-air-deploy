@@ -14,8 +14,8 @@ Cinta Tanah Air
             <div class="col-lg-8 posts-list">
                 <div class="single-post">
                     <div class="feature-img">
-                        <img class="card-img rounded-0" src="{{ asset('img/blog') . '/' . $article->banner_path }}"
-                            alt="">
+                        <img class="card-img rounded-0"
+                            src="{{'cinta-tanah-air/public/img/blog/' . $article->banner_path }}" alt="">
                     </div>
                     <div class="blog_details">
                         <h2>{{ $article->title }}</h2>
@@ -43,7 +43,7 @@ Cinta Tanah Air
                 <h3>Penulis</h3>
                 <div class="blog-author">
                     <div class="media align-items-center">
-                        <img src="{{ asset('img/user_picture') . '/' . $article->author->profile_picture }}" alt="">
+                        <img src="{{ 'cinta-tanah-air/public/img/blog/' . $article->author->profile_picture }}" alt="">
                         <div class="media-body">
                             <a href="#">
                                 <h4>

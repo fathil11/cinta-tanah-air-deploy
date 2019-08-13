@@ -68,7 +68,8 @@
                 @foreach ($art_stat as $art)
                 <div class="media post_item">
                     <div class="col-md-5">
-                        <img class="img-fluid" src="{{ asset('img/blog') . '/' . $art->banner_path }}" alt="post">
+                        <img class="img-fluid" src="{{ 'cinta-tanah-air/public/img/blog/' . $art->banner_path }}"
+                            alt="post">
                     </div>
                     <div class="media-body">
                         <a href="single-blog.html">
