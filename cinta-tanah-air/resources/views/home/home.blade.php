@@ -36,7 +36,7 @@
                 <div class="cta_part_iner">
                     <div class="cta_part_text">
                         <p> Slogan Kita</p>
-                        <h1>"Merajut Perdamaian Indonesia"</h1>
+                        <h1>"Merajut Perdamaian Nusantara"</h1>
                     </div>
                 </div>
             </div>
