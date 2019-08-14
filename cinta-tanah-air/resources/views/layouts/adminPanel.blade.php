@@ -161,6 +161,15 @@
 
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                        <a class="nav-link @if(Request::is('admin/buat-user')) {{'active'}} @endif"
+                            href="{{ url('/admin/buat-user') }}">
+                            <i class="ni ni-single-02 text-primary"></i> Buat User
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
                         <a class="nav-link @if(Request::is('admin/kelola-user')) {{'active'}} @endif"
                             href="{{ url('/admin/kelola-user') }}">
                             <i class="fas fa-user-friends text-danger"></i> Kelola User
@@ -168,14 +177,6 @@
                     </li>
                 </ul>
 
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link @if(Request::is('admin/buat-user')) {{'active'}} @endif"
-                            href="{{ url('/admin/buat-user') }}">
-                            <i class="ni ni-single-02 text-primary"></i> Buat User
-                        </a>
-                    </li>
-                </ul>
 
             </div>
         </div>
