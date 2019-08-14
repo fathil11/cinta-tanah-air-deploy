@@ -72,6 +72,26 @@
                     </div>
                     <br>
 
+                    {{-- Input Profil Piture --}}
+                    <div class="row">
+                        <div class="col-md-5">
+                            <b>Gambar Profil User</b>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input crop-profile-js" id="customFileLang"
+                                    lang="en" name="profile_picture">
+                                <label class="custom-file-label" for="customFileLang">Pilih gambar ...</label>
+                            </div>
+                            <input type="hidden" name="x1" value="" />
+                            <input type="hidden" name="y1" value="" />
+                            <input type="hidden" name="w" value="" />
+                            <input type="hidden" name="h" value="" />
+                            <br><br>
+                            <img width="400" id="previewimage" style="display:none;" />
+
+                        </div>
+                    </div>
+                    <br>
+
                     {{-- Input Password User --}}
                     <div class="row">
                         <div class="col-md-5">

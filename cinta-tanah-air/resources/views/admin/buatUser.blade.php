@@ -73,7 +73,7 @@
                     </div>
                     <br>
 
-                    {{-- Input Gambar Artikel --}}
+                    {{-- Input Profil Piture --}}
                     <div class="row">
                         <div class="col-md-5">
                             <b>Gambar Profil User</b>

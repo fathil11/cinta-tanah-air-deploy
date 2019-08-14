@@ -286,6 +286,29 @@ class AdminController extends Controller
             $user->password = bcrypt($request->password);
         }
 
+        if($request->has('profile_picture')){
+            // Get image file
+            $image = $request->file('profile_picture');
+            // Make a image name based on user name and current timestamp
+            $name = str_slug($request->input('name')) . '_' . time();
+            // Define folder path
+            $folder = 'img/user_picture/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
+            // Upload image
+            if ($this->uploadOne($image, $folder, 'public', $name)) {
+                // Crop
+                $img = Image::make(public_path($filePath));
+                $croppath = public_path($filePath);
+
+                $img->crop($request->input('w'), $request->input('h'), $request->input('x1'), $request->input('y1'));
+
+                $img->save($croppath);
+            }
+
+            $user->profile_picture = $name . '.' . $image->getClientOriginalExtension();
+        }
+
         if ($request->role == 'admin') {
             $user->role = 1;
         } elseif ($request->role == 'author') {
