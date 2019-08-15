@@ -128,7 +128,10 @@ class AdminController extends Controller
     // Edit Artikel
     public function editArtikel(Request $request, $id)
     {
-
+        $article = Article::find($id);
+        if($article->status == 1){
+            return redirect(url('admin/kelola-artikel'))->with('error', 'Artikel sudah diterbitkan, tidak bisa di edit.');
+        }
         $request->validate([
             'title' => 'required|min:5|max:50',
             'banner_path' => 'bail|image|mimes:jpeg,png,jpg,gif|max:10000',
@@ -136,7 +139,6 @@ class AdminController extends Controller
             'cat' => 'nullable',
             'editor' => 'bail|required|min:30|max:10000'
         ]);
-        $article = Article::find($id);
         $article->title = $request->title;
         $article->slug = str_slug($request->title, '-');
         $article->type = $request->article_type;
@@ -185,9 +187,8 @@ class AdminController extends Controller
         $article = Article::find($id);
         if($article->status == 1){
             return redirect(url('admin/kelola-artikel'))->with('error', 'Artikel sudah diterbitkan, tidak boleh dihapus.');
-        }else{
-            $article->delete();
         }
+        $article->delete();
         return redirect(url('admin/kelola-artikel'))->with('success', 'Artikel berhasil di hapus.');
     }
     // Buat User
