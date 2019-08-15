@@ -177,14 +177,18 @@ class AdminController extends Controller
             $new_cat->save();
         }
 
-        return redirect(url('admin/kelola-artikel'))->with('status', 'Artikel berhasil di edit.');
+        return redirect(url('admin/kelola-artikel'))->with('success', 'Artikel berhasil di edit.');
     }
 
     public function deleteArtikel($id)
     {
         $article = Article::find($id);
-        $article->delete();
-        return redirect(url('admin/kelola-artikel'))->with('status', 'Artikel berhasil di hapus.');
+        if($article->status == 1){
+            return redirect(url('admin/kelola-artikel'))->with('error', 'Artikel sudah diterbitkan, tidak boleh dihapus.');
+        }else{
+            $article->delete();
+        }
+        return redirect(url('admin/kelola-artikel'))->with('success', 'Artikel berhasil di hapus.');
     }
     // Buat User
     public function showBuatUser()
