@@ -187,7 +187,7 @@ class AdminController extends Controller
     {
         $article = Article::find($id);
         if($article->status == 1){
-            return redirect(url('admin/kelola-artikel'))->with('error', 'Artikel sudah diterbitkan, tidak boleh dihapus.');
+            return redirect(url('admin/kelola-artikel'))->with('error', 'Artikel sudah diterbitkan, tidak bisa dihapus.');
         }
         $article->delete();
         return redirect(url('admin/kelola-artikel'))->with('success', 'Artikel berhasil di hapus.');
