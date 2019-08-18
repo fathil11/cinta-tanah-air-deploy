@@ -75,7 +75,8 @@
                             </td>
 
                             <td>
-                                {{ $article->title }}
+                                <a
+                                    href="{{ 'https://www.cintatanahair.id/lihat-artikel/' . $article->slug }}">{{ $article->title }}</a>
                             </td>
 
                             <td>
