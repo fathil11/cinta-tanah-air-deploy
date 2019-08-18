@@ -123,15 +123,16 @@ class AdminController extends Controller
     public function showEditArtikel($id)
     {
         $article = Article::find($id);
+        if($article->status == 1){
+            return redirect(url('admin/kelola-artikel'))->with('error', 'Artikel sudah diterbitkan, tidak bisa di edit.');
+        }
         return view('admin.editArtikel', ['article' => $article]);
     }
     // Edit Artikel
     public function editArtikel(Request $request, $id)
     {
         $article = Article::find($id);
-        if($article->status == 1){
-            return redirect(url('admin/kelola-artikel'))->with('error', 'Artikel sudah diterbitkan, tidak bisa di edit.');
-        }
+
         $request->validate([
             'title' => 'required|min:5|max:50',
             'banner_path' => 'bail|image|mimes:jpeg,png,jpg,gif|max:10000',
