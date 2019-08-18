@@ -62,7 +62,9 @@
                                 Status
                             </th>
 
-                            <th scope="col"></th>
+                            <th scope="col">
+                                Penulis
+                            </th>
                         </tr>
                     </thead>
                     <tbody class="list">
@@ -109,6 +111,11 @@
 
                             <td class="text-right">
                                 {{ $article->author->name }}
+                                @if ($article->author->role == 1)
+                                (Admin)
+                                @else
+                                (Penulis)
+                                @endif
                                 {{-- <div class="dropdown">
                                     <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
