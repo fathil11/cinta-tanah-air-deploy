@@ -143,7 +143,7 @@
                     <li class="nav-item">
                         <a class="nav-link @if(Request::is('admin/kelola-artikel')) {{'active'}} @endif"
                             href="{{ url('admin/kelola-artikel') }}">
-                            <i class="ni ni-single-copy-04 text-info"></i> Kelola Artikel
+                            <i class="ni ni-single-copy-04 text-info"></i> Artikel Terposting
                         </a>
                     </li>
                     <li class="nav-item">
