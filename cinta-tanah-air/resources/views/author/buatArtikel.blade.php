@@ -31,14 +31,20 @@
                     <br>
 
                     {{-- Input Gambar Artikel --}}
-
                     <div class="row">
                         <div class="col-md-6">
                             <b>Gambar Artikel</b>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFileLang" lang="en">
+                                <input type="file" class="custom-file-input crop-artikel-js" id="customFileLang"
+                                    lang="en" name="banner_path">
                                 <label class="custom-file-label" for="customFileLang">Pilih gambar ...</label>
                             </div>
+                            <input type="hidden" name="x1" value="" />
+                            <input type="hidden" name="y1" value="" />
+                            <input type="hidden" name="w" value="" />
+                            <input type="hidden" name="h" value="" />
+                            <br><br>
+                            <img width="400" id="previewimage" style="display:none;" />
                         </div>
                     </div>
                     <br><br>
