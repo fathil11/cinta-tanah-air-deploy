@@ -24,6 +24,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/customJordy.css') }}" rel="stylesheet">
     {{-- Data Table CSS--}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
+    {{-- Image Crop CSS--}}
+    <link rel="stylesheet" href="{{ asset('css/imgareaselect-default.css') }}">
 </head>
 
 <body>
