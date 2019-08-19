@@ -87,18 +87,6 @@ class AuthorController extends Controller
         return redirect(url('author/kelola-artikel'))->with('status', 'Artikel berhasil dibuat.');
     }
 
-        $article->save();
-        if ($request->has('cat')) {
-            foreach ($request->cat as $ca) {
-                $new_cat = new ArticleCategory();
-                $new_cat->article_id = $article->id;
-                $new_cat->category = $ca;
-                $new_cat->save();
-            }
-        }
-        return redirect(url('admin/kelola-artikel'))->with('status', 'Artikel berhasil dibuat.');
-    }
-
     public function showKelolaArtikel()
     {
         $articles = Article::author()->where('author_id', Auth::user()->id)->get();
