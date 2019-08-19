@@ -234,12 +234,13 @@
     <script>
         // Data Table Init
         $(document).ready( function () {
+
             $('#article_table').DataTable({
                 "info": false,
                 "lengthMenu": [ 5, 10, 15, 20, 25 ],
                 "pageLength": 5,
-                "columnDefs": [{ "orderable": false, "targets": 5 },
-                                 {"searchable": false, "targets": 5}]
+                // "columnDefs": [{ "orderable": false, "targets": 6 },
+                //             {"searchable": false, "targets": 6}]
             });
 
             $('#users_table').DataTable({
@@ -247,22 +248,93 @@
                 "lengthMenu": [ 5, 10, 15, 20 ],
                 "pageLength": 5,
                 "columnDefs": [{ "orderable": false, "targets": 4 },
-                                 {"searchable": false, "targets": 4}]
+                            {"searchable": false, "targets": 4}]
             });
-        } );
 
-        // WYSIWYG Init
-        var editor = new Jodit("#editor", {
-            "spellcheck": false,
-            "buttons": "paragraph,,,,,,,|,fontsize,,brush,|,indent,,align,,ul,ol,|,table,link,|,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall,print"
+            $('input[type="file"]').change(function(e){
+                var fileName = e.target.files[0].name;
+                $('.custom-file-label').html(fileName);
+            });
+
+            $(".crop-profile-js").change(function () {
+                readURL(this)
+                $('#previewimage').on('load', function(){
+                    crop1()
+                })
+
+            });
+
+            $(".crop-artikel-js").change(function () {
+                readURL(this)
+                $('#previewimage').on('load', function(){
+                    crop2()
+                })
+
+            });
+
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        var pic = $('#previewimage');
+                        pic.attr('src', e.target.result);
+                        pic.attr('style', 'display: block;');
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            function crop1(){
+                var image = new Image();
+                image.src = $("#previewimage").attr("src");
+                var real_width = image.naturalWidth;
+                var real_height = image.naturalHeight;
+
+                $('#previewimage').imgAreaSelect({
+                    x1: 0, y1: 0, x2: 500, y2: 500,
+                    aspectRatio: '1:1',
+                    handles: true,
+                    fadeSpeed: 700,
+                    imageHeight: real_height,
+                    imageWidth: real_width,
+                    onSelectChange: getCoordinates // this function below
+                });
+            }
+
+            function crop2(){
+                var image = new Image();
+                image.src = $("#previewimage").attr("src");
+                var real_width = image.naturalWidth;
+                var real_height = image.naturalHeight;
+
+                $('#previewimage').imgAreaSelect({
+                    x1: 0, y1: 0, x2: 500, y2: 250,
+                    aspectRatio: '2:1',
+                    handles: true,
+                    fadeSpeed: 700,
+                    imageHeight: real_height,
+                    imageWidth: real_width,
+                    onSelectChange: getCoordinates // this function below
+                });
+            }
+
+            function getCoordinates(img, selection) {
+                $('input[name="x1"]').val(selection.x1);
+                $('input[name="y1"]').val(selection.y1);
+                $('input[name="w"]').val(selection.width);
+                $('input[name="h"]').val(selection.height);
+            }
+
+            // WYSIWYG Init
+            if($('#editor').length != 0){
+                var editor = new Jodit("#editor", {
+                    "spellcheck": false,
+                    "buttons": "paragraph,,,,,,,|,fontsize,,brush,|,indent,,align,,ul,ol,|,image,video,table,link,|,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall,print"
+                });
+            }
         });
-
-        $('input[type="file"]').change(function(e){
-            var fileName = e.target.files[0].name;
-            $('.custom-file-label').html(fileName);
-        });
-
-
     </script>
 </body>
 
