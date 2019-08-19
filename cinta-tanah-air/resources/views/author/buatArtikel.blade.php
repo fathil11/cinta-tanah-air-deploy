@@ -11,11 +11,26 @@
 
 @section('content')
 <div class="row">
+    @if ($errors->any())
+    <div class="col-md-12">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <div>
+                @foreach ($errors->all() as $error)
+                <li>
+                    <span class="alert-inner--text">{{ $error }}</span>
+                </li>
+                @endforeach
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    @endif
     <div class="col">
         <div class="card shadow cardcustom">
-            <form action="{{ url('testing') }}" method="post">
+            <form action="{{ url('admin/buat-artikel') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                {{ method_field('PUT') }}
                 <div class="container-fluid">
                     <br>
                     {{-- Input Judul Artikel --}}
@@ -24,7 +39,7 @@
                             <div class="form-group">
                                 <b>Judul Artikel</b>
                                 <input type="text" class="form-control form-control-alternative custom-input-judul"
-                                    name="judul" placeholder="Judul artikel ...">
+                                    name="title" placeholder="Judul artikel ...">
                             </div>
                         </div>
                     </div>
@@ -55,13 +70,13 @@
                             <div class="form-group">
                                 <b>Jenis Artikel</b>
                                 <div class="custom-control custom-radio mb-3">
-                                    <input name="custom-radio-2" class="custom-control-input" id="berita" checked=""
-                                        type="radio">
+                                    <input name="article_type" class="custom-control-input" id="berita" checked=""
+                                        type="radio" value="berita">
                                     <label class="custom-control-label" for="berita">Berita</label>
                                 </div>
                                 <div class="custom-control custom-radio mb-3">
-                                    <input name="custom-radio-2" class="custom-control-input" id="bertutur"
-                                        type="radio">
+                                    <input name="article_type" class="custom-control-input" id="bertutur" type="radio"
+                                        value="bertutur">
                                     <label class="custom-control-label" for="bertutur">Bertutur</label>
                                 </div>
                             </div>
@@ -76,23 +91,28 @@
                                 <div class="form-group">
                                     <b>Kategori Berita</b>
                                     <div class="custom-control custom-checkbox mb-3">
-                                        <input class="custom-control-input" id="budaya" type="checkbox">
+                                        <input class="custom-control-input" id="budaya" type="checkbox" name="cat[]"
+                                            value="budaya">
                                         <label class="custom-control-label" for="budaya">Budaya</label>
                                     </div>
                                     <div class="custom-control custom-checkbox mb-3">
-                                        <input class="custom-control-input" id="pemberdayaan" type="checkbox">
+                                        <input class="custom-control-input" id="pemberdayaan" type="checkbox"
+                                            name="cat[]" value="pemberdayaan">
                                         <label class="custom-control-label" for="pemberdayaan">Pemberdayaan</label>
                                     </div>
                                     <div class="custom-control custom-checkbox mb-3">
-                                        <input class="custom-control-input" id="pendidikan" type="checkbox">
+                                        <input class="custom-control-input" id="pendidikan" type="checkbox" name="cat[]"
+                                            value="pendidikan">
                                         <label class="custom-control-label" for="pendidikan">Pendidikan</label>
                                     </div>
                                     <div class="custom-control custom-checkbox mb-3">
-                                        <input class="custom-control-input" id="sosial" type="checkbox">
+                                        <input class="custom-control-input" id="sosial" type="checkbox" name="cat[]"
+                                            value="sosial">
                                         <label class="custom-control-label" for="sosial">Sosial</label>
                                     </div>
                                     <div class="custom-control custom-checkbox mb-3">
-                                        <input class="custom-control-input" id="hukum" type="checkbox">
+                                        <input class="custom-control-input" id="hukum" type="checkbox" name="cat[]"
+                                            value="hukum">
                                         <label class="custom-control-label" for="hukum">Hukum</label>
                                     </div>
                                 </div>
