@@ -230,6 +230,9 @@
     {{-- Data Table Bootstrap 4 Integration  JS--}}
     <script type="text/javascript" src="{{ asset('js/dataTables.bootstrap4.min.js')}}"></script>
 
+    {{-- Image Crop JS --}}
+    <script src="{{ asset('js/jquery.imgareaselect.min.js') }}"></script>
+
     {{-- JS Init --}}
     <script>
         // Data Table Init
