@@ -99,6 +99,9 @@ Route::group(['prefix' => 'author', 'middleware' => 'author'], function () {
     // Show Buat Artikel
     Route::get('buat-artikel', 'AuthorController@showBuatArtikel');
 
+    // Buat Artikel
+    Route::post('buat-artikel', 'AuthorController@buatArtikel');
+
     // Show Kelola Artikel
     Route::get('kelola-artikel', 'AuthorController@showKelolaArtikel');
 });

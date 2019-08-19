@@ -29,7 +29,7 @@
     @endif
     <div class="col">
         <div class="card shadow cardcustom">
-            <form action="{{ url('admin/buat-artikel') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('author/buat-artikel') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="container-fluid">
                     <br>

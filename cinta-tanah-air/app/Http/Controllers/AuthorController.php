@@ -3,9 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Traits\UploadTrait;
+use Carbon\Carbon;
+use Image;
+use File;
+use Auth;
+
+use App\User;
+use App\Article;
+use App\ArticleCategory;
+use Illuminate\Support\Facades\Auth as IlluminateAuth;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class AuthorController extends Controller
 {
+    use UploadTrait;
+
     public function showWelcome()
     {
         return view('author.welcome');
@@ -71,11 +84,25 @@ class AuthorController extends Controller
                 $new_cat->save();
             }
         }
+        return redirect(url('author/kelola-artikel'))->with('status', 'Artikel berhasil dibuat.');
+    }
+
+        $article->save();
+        if ($request->has('cat')) {
+            foreach ($request->cat as $ca) {
+                $new_cat = new ArticleCategory();
+                $new_cat->article_id = $article->id;
+                $new_cat->category = $ca;
+                $new_cat->save();
+            }
+        }
         return redirect(url('admin/kelola-artikel'))->with('status', 'Artikel berhasil dibuat.');
     }
 
     public function showKelolaArtikel()
     {
-        return view('author.kelolaArtikel');
+        $articles = Article::author()->where('author_id', Auth::user()->id)->get();
+        dd($articles);
+        return view('author.kelolaArtikel', ['articles' => $articles]);
     }
 }

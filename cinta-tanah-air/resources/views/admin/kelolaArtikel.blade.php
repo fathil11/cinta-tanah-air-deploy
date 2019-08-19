@@ -117,30 +117,14 @@
                                 @else
                                 (Penulis)
                                 @endif
-                                {{-- <div class="dropdown">
-                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                        <a class="dropdown-item"
-                                            href="{{ url('admin/terbit-artikel') . '/' . $article->id }}">Terbitkan</a>
-                                <a class="dropdown-item"
-                                    href="{{ url('admin/tunda-artikel') . '/' . $article->id }}">Tunda</a>
-                                <a class="dropdown-item"
-                                    href="{{ url('admin/edit-artikel') . '/' . $article->id }}">Edit</a>
-                                <a class="dropdown-item"
-                                    href="{{ url('admin/hapus-artikel') . '/' . $article->id }}">Hapus</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <br><br>
             </div>
-        </div> --}}
-        </td>
-        </tr>
-        @endforeach
-        </tbody>
-        </table>
-        <br><br>
+        </div>
     </div>
-</div>
-</div>
 </div>
 @endsection
