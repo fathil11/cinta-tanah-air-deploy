@@ -90,7 +90,7 @@ class AuthorController extends Controller
     public function showKelolaArtikel()
     {
         $articles = Article::all();
-        $articles = $articles->whereHas('author_id', '');
+        // $articles = $articles->whereHas('author_id', '');
         dd($articles);
         return view('author.kelolaArtikel', ['articles' => $articles]);
     }
