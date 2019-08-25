@@ -384,7 +384,7 @@ class AdminController extends Controller
     {
         $article = Article::findOrFail($id);
 
-        if($article->status != 2 || $article->status != 3){
+        if($article->status != 2 && $article->status != 3){
             return abort(404);
         }
 
