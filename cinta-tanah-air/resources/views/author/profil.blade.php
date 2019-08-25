@@ -20,7 +20,7 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        @elseif (Session::has('error'))
+        @elseif ($errors->any())
         <div class="col-md-12">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <div>
