@@ -19,7 +19,7 @@
             <div class="container table-responsive">
                 <br>
                 <div>
-                    <table id="article_table" class="table align-items-center">
+                    <table id="draft_article_table" class="table align-items-center">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">
@@ -37,6 +37,9 @@
                                 <th scope="col">
                                     Tanggal
                                 </th>
+                                <th scope="col">
+                                    Status
+                                </th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -48,8 +51,7 @@
                                 </td>
 
                                 <td>
-                                    <a target="blank"
-                                        href="{{ 'https://www.cintatanahair.id/lihat-artikel/' . $article->slug }}">{{ $article->title }}</a>
+                                    {{ $article->title }}
                                 </td>
 
                                 <td class="status">
@@ -71,6 +73,18 @@
                                     {{ date('d F, Y', strtotime($article->created_at)) }}
                                 </td>
 
+                                <td class="status">
+                                    @if($article->status == 2)
+                                    <span class="badge badge-dot mr-4">
+                                        <i class="bg-primary"></i> ditinjau
+                                    </span>
+                                    @elseif($article->status == 3)
+                                    <span class="badge badge-dot mr-4">
+                                        <i class="bg-info"></i> antrian
+                                    </span>
+                                    @endif
+                                </td>
+
                                 <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
@@ -78,10 +92,12 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item"
-                                                href="{{ url('admin/terbit-artikel') . '/' . $article->id }}">Terbitkan</a>
+                                            <a class="dropdown-item" target="_blank"
+                                                href="{{ url('admin/tinjau-artikel') . '/' . $article->id }}">Tinjau</a>
                                             <a class="dropdown-item"
                                                 href="{{ url('admin/edit-artikel') . '/' . $article->id }}">Edit</a>
+                                            <a class="dropdown-item"
+                                                href="{{ url('admin/terbit-artikel') . '/' . $article->id }}">Terbitkan</a>
                                             <a class="dropdown-item"
                                                 href="{{ url('admin/tolak-artikel') . '/' . $article->id }}">Tolak</a>
                                         </div>

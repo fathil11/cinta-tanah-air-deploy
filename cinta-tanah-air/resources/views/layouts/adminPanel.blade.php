@@ -296,8 +296,15 @@
                 "info": false,
                 "lengthMenu": [ 5, 10, 15, 20, 25 ],
                 "pageLength": 5,
-                // "columnDefs": [{ "orderable": false, "targets": 6 },
-                //             {"searchable": false, "targets": 6}]
+                "columnDefs": [{"searchable": false, "targets": 0}]
+            });
+
+            $('#draft_article_table').DataTable({
+                "info": false,
+                "lengthMenu": [ 5, 10, 15, 20, 25 ],
+                "pageLength": 5,
+                "columnDefs": [{ "orderable": false, "targets": 6 },
+                            {"searchable": false, "targets": 6}]
             });
 
             $('#users_table').DataTable({
