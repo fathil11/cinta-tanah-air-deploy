@@ -204,6 +204,7 @@ class AuthorController extends Controller
         $user->moto = $request->moto;
 
         if ($request->has('password')) {
+            dd('tes');
             $user->password = bcrypt($request->password);
         }
 
