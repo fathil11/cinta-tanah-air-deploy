@@ -110,15 +110,6 @@ class AdminController extends Controller
         }
     }
 
-    // Tunda Artikel
-    public function tundaArtikel($id)
-    {
-        $article = Article::find($id);
-        $article->status = 2;
-        if ($article->save()) {
-            return redirect(url('admin/kelola-artikel'))->with('success', 'Artikel berhasil ditunda');
-        }
-    }
 
     // Show Edit Artikel
     public function showEditArtikel($id)
@@ -184,15 +175,6 @@ class AdminController extends Controller
         return redirect(url('admin/kelola-artikel'))->with('success', 'Artikel berhasil di edit.');
     }
 
-    public function deleteArtikel($id)
-    {
-        $article = Article::find($id);
-        if($article->status == 1){
-            return redirect(url('admin/kelola-artikel'))->with('error', 'Artikel sudah diterbitkan, tidak bisa dihapus.');
-        }
-        $article->delete();
-        return redirect(url('admin/kelola-artikel'))->with('success', 'Artikel berhasil di hapus.');
-    }
     // Buat User
     public function showBuatUser()
     {
@@ -396,5 +378,22 @@ class AdminController extends Controller
         if ($user->save()) {
             return redirect(url('admin/profil'))->with('success', 'Berhasil di update.');
         }
+    }
+
+    public function showTinjauArtikel($id)
+    {
+        $article = Article::findOrFail($id);
+
+        if($article->status != 2 || $article->status != 3){
+            return abort(404);
+        }
+
+        $article->status = 2;
+        $article->save();
+
+        $cat_stat = null;
+        $art_stat = null;
+
+        return view('admin.tinjauArtikel', ['article' => $article, 'cat_stat' => $cat_stat, 'art_stat' => $art_stat]);
     }
 }

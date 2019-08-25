@@ -36,7 +36,6 @@ Route::group(['prefix' => '/'], function () {
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     // Show Welcome
     Route::get('', 'AdminController@showWelcome');
-    Route::get('welcome', 'AdminController@showWelcome');
 
     // Show Statistik
     Route::get('statistik', 'AdminController@showStatistic');
@@ -50,11 +49,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     // Show Kelola Artikel
     Route::get('kelola-artikel', 'AdminController@showKelolaArtikel');
 
-    // Terbitkan Artikel
-    Route::get('terbit-artikel/{id}', 'AdminController@terbitArtikel');
+    // Show Draft Artikel
+    Route::get('draft-artikel', 'AdminController@showDraftArtikel');
 
-    // Tunda Artikel
-    Route::get('tunda-artikel/{id}', 'AdminController@tundaArtikel');
+    // Show Tinjau Artikel
+    Route::get('tinjau-artikel/{id}', 'AdminController@showEditArtikel');
 
     // Show Edit Artikel
     Route::get('edit-artikel/{id}', 'AdminController@showEditArtikel');
@@ -62,11 +61,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     // Edit Artikel
     Route::post('edit-artikel/{id}', 'AdminController@editArtikel');
 
-    // Delete Artikel
-    Route::get('hapus-artikel/{id}', 'AdminController@deleteArtikel');
-
-    // Show Draft Artikel
-    Route::get('draft-artikel', 'AdminController@showDraftArtikel');
+    // Terbitkan Artikel
+    Route::get('terbit-artikel/{id}', 'AdminController@terbitArtikel');
 
     // Show Kelola User
     Route::get('kelola-user', 'AdminController@showKelolaUser');

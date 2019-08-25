@@ -72,9 +72,12 @@ class HomeController extends Controller
     public function openArticle($slug)
     {
         $article = Article::where('slug', $slug)->first();
+
+        // Posted Validate
         if($article->status != 1){
             return abort(404);
         }
+
         $cat_stat = $this->catStat();
         $art_stat = $this->artStat();
         return view('home.openArtikel', ['article' => $article, 'cat_stat' => $cat_stat, 'art_stat' => $art_stat]);
