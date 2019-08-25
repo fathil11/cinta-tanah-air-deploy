@@ -391,8 +391,8 @@ class AdminController extends Controller
         $article->status = 2;
         $article->save();
 
-        $cat_stat = null;
-        $art_stat = null;
+        $cat_stat = [];
+        $art_stat = [];
 
         return view('admin.tinjauArtikel', ['article' => $article, 'cat_stat' => $cat_stat, 'art_stat' => $art_stat]);
     }
