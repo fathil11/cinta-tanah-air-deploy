@@ -38,31 +38,31 @@
                 <table id="article_table" class="table-responsive table align-items-center">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col">
+                            <th>
                                 Id
                             </th>
 
-                            <th scope="col">
+                            <th>
                                 Judul Artikel
                             </th>
 
-                            <th scope="col">
+                            <th>
                                 Tipe Artikel
                             </th>
 
-                            <th scope="col">
+                            <th>
                                 Kategori
                             </th>
 
-                            <th scope="col">
+                            <th>
                                 Tanggal
                             </th>
 
-                            <th scope="col">
+                            <th>
                                 Status
                             </th>
 
-                            <th scope="col">
+                            <th>
 
                             </th>
 
@@ -71,7 +71,7 @@
                     <tbody class="list">
                         @foreach ($articles as $article)
                         <tr>
-                            <td scope="row">
+                            <td>
                                 {{ $article->id }}
                             </td>
 
@@ -84,7 +84,7 @@
                                 {{ $article->type }}
                             </td>
 
-                            <td class="completion">
+                            <td>
                                 @php
                                 $temp = array();
                                 foreach($article->category as $cats){
@@ -99,7 +99,7 @@
                                 {{ date('d F, Y', strtotime($article->created_at)) }}
                             </td>
 
-                            <td class="status">
+                            <td>
                                 @if ($article->status == 4)
                                 <span class="badge badge-dot mr-4">
                                     <i class="bg-danger"></i> ditolak
