@@ -105,8 +105,6 @@
                 </form>
                 <!-- Navigation -->
 
-                <hr class="my-3">
-
                 <h6 class="navbar-heading text-muted">Manajemen Artikel</h6>
 
                 <ul class="navbar-nav mb-md-3">
@@ -124,6 +122,13 @@
                     </li>
                 </ul>
 
+                <hr class="my-3">
+
+                <li class="nav-item">
+                    <a class="nav-link  active " href="{{ url('author/profil') }}">
+                        <i class="ni ni-single-02 text-yellow"></i> Profil
+                    </a>
+                </li>
             </div>
         </div>
     </nav>
