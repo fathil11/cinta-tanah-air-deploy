@@ -92,8 +92,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item"
-                                                onclick="reloadAndOpenNewTab({{ url('admin/tinjau-artikel') . '/' . $article->id }})"
+                                            <a class="dropdown-item" onclick="reloadAndOpenNewTab({{ $article->id }})"
                                                 href="#">Tinjau</a>
                                             <a class="dropdown-item"
                                                 href="{{ url('admin/edit-artikel') . '/' . $article->id }}">Edit</a>

@@ -295,7 +295,7 @@
     function reloadAndOpenNewTab(url){
         //Open in new tab
         console.log(url);
-        window.open(url, '_blank');
+        window.open('https://cintatanahair.id/admin/tinjau-artikel/' +url, '_blank');
         //focus to thet window
         window.focus();
         //reload current page
