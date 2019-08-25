@@ -108,23 +108,19 @@ class AuthorController extends Controller
             return redirect(url('author/kelola-artikel'))->with('error', 'Artikel sedang ditinjau, tidak bisa di edit.');
         }
 
-        session(['id_checker' => $article->id]);
+        session(['update_checker' => $article->id]);
         return view('author.editArtikel', ['article' => $article]);
     }
 
     public function editArtikel(Request $request, $id)
     {
-        $id_check = Crypt::decrypt($request->article_id);
-        if(!$id_check){
-            dd('tes');
-        }
-        if($id != Crypt::decrypt($request->article_id)){
-            return redirect(url('author/kelola-artikel'))->with('error', 'Terjadi Kesalahan.');
-        }
-        else{
-            dd('berhasil');
+        $update_checker = Session::get('update_checker');
+
+        if($id != $update_checker){
+            return redirect(url('author/kelola-artikel'))->with('error', 'Terjadi kesalahan.');
         }
 
+        Session::forget('update_checker');
         $article = Article::findOrFail($id);
 
         $request->validate([
