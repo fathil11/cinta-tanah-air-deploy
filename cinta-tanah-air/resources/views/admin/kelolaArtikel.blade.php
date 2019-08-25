@@ -33,7 +33,7 @@
     </div>
     <div class="col-md-12">
         <div class="card shadow cardcustom">
-            <div class="container">
+            <div class="container table-responsive">
                 <br>
                 <table id="article_table" class="table align-items-center">
                     <thead class="thead-light">

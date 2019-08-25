@@ -12,6 +12,9 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
+        @include('layouts.validationMessage')
+    </div>
+    <div class="col-md-12">
         <div class="card shadow cardcustom">
             <div class="container table-responsive">
                 <br>
@@ -38,22 +41,36 @@
                             </tr>
                         </thead>
                         <tbody class="list">
+                            @foreach ($articles as $article)
                             <tr>
                                 <td scope="row">
-                                    1
+                                    {{ $article->id }}
                                 </td>
+
                                 <td>
-                                    Megawati Ambil Sumpah Jabatan Ketum PDIP 2019-2024
+                                    <a target="blank"
+                                        href="{{ 'https://www.cintatanahair.id/lihat-artikel/' . $article->slug }}">{{ $article->title }}</a>
                                 </td>
+
                                 <td class="status">
-                                    Fakhri RJ
+                                    {{ $article->author->name }}
                                 </td>
+
                                 <td class="completion">
-                                    Politik
+                                    @php
+                                    $temp = array();
+                                    foreach($article->category as $cats){
+                                    $temp[] = $cats->category;
+                                    }
+                                    $cat = implode('<br>', $temp)
+                                    @endphp
+                                    {!! $cat !!}
                                 </td>
+
                                 <td>
-                                    15 Agustus 2019
+                                    {{ date('d F, Y', strtotime($article->created_at)) }}
                                 </td>
+
                                 <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
@@ -61,46 +78,17 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="#">Terbitkan</a>
-                                            <a class="dropdown-item" href="#">Edit</a>
-                                            <a class="dropdown-item" href="#">Hapus</a>
+                                            <a class="dropdown-item"
+                                                href="{{ url('admin/terbit-artikel') . '/' . $article->id }}">Terbitkan</a>
+                                            <a class="dropdown-item"
+                                                href="{{ url('admin/edit-artikel') . '/' . $article->id }}">Edit</a>
+                                            <a class="dropdown-item"
+                                                href="{{ url('admin/tolak-artikel') . '/' . $article->id }}">Tolak</a>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-
-                            <tr>
-                                <td scope="row">
-                                    2
-                                </td>
-                                <td>
-                                    Sederet Cerita Unik di Balik Kongres V PDIP
-                                </td>
-                                <td class="status">
-                                    Juniar Firmansyah
-                                </td>
-                                <td class="completion">
-                                    Pendidikan
-                                </td>
-                                <td>
-                                    31 Februari 2019
-                                </td>
-                                <td class="text-right">
-                                    <div class="dropdown">
-                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="#">Terbitkan</a>
-                                            <a class="dropdown-item" href="#">Edit</a>
-                                            <a class="dropdown-item" href="#">Hapus</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-
-
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
