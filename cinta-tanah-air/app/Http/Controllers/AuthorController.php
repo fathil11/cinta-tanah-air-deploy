@@ -112,7 +112,8 @@ class AuthorController extends Controller
 
     public function editArtikel(Request $request, $id)
     {
-        $article = Article::find($id);
+        dd($request->article_id);
+        $article = Article::findOrFail($id);
 
         $request->validate([
             'title' => 'required|min:5|max:50',
