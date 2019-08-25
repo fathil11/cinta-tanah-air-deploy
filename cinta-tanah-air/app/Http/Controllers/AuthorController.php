@@ -25,10 +25,6 @@ class AuthorController extends Controller
         return view('author.welcome');
     }
 
-    public function showProfil()
-    {
-        return view('author.profil');
-    }
     public function showBuatArtikel()
     {
         return view('author.buatArtikel');
@@ -172,5 +168,12 @@ class AuthorController extends Controller
         }
 
         return redirect(url('author/kelola-artikel'))->with('success', 'Artikel berhasil di edit.');
+    }
+
+
+    public function showProfil()
+    {
+        $user = User::findOrFail(Auth::user()->id);
+        return view('author.profil', ['user' => $user]);
     }
 }

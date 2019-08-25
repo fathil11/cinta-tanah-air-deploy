@@ -93,9 +93,6 @@ Route::group(['prefix' => 'author', 'middleware' => 'author'], function () {
     Route::get('', 'AuthorController@showWelcome');
     Route::get('welcome', 'AuthorController@showWelcome');
 
-    // Show Profil
-    Route::get('profil', 'AuthorController@showProfil');
-
     // Show Buat Artikel
     Route::get('buat-artikel', 'AuthorController@showBuatArtikel');
 
@@ -110,6 +107,9 @@ Route::group(['prefix' => 'author', 'middleware' => 'author'], function () {
 
     // Edit Artikel
     Route::post('edit-artikel/{id}', 'AuthorController@editArtikel');
+
+    // Show Profil
+    Route::get('profil', 'AuthorController@showProfil');
 });
 
 Auth::routes();
