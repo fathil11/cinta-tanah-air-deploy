@@ -96,7 +96,7 @@ class AdminController extends Controller
 
     public function showDraftArtikel()
     {
-        $articles = Article::where('status', '3')->where('status', '2')->get();
+        $articles = Article::where('status', '3')->orWhere('status', '2')->get();
         return view('admin.draftArtikel', ['articles' => $articles]);
     }
 
