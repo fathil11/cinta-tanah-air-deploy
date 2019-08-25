@@ -101,7 +101,7 @@
                             <td class="status">
                                 @if ($article->status == 2)
                                 <span class="badge badge-dot mr-4">
-                                    <i class="bg-warning"></i> ditunda
+                                    <i class="bg-warning"></i> ditinjau
                                 </span>
                                 @elseif($article->status == 1)
                                 <span class="badge badge-dot mr-4">
