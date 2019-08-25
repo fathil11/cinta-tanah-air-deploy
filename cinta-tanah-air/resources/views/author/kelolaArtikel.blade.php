@@ -62,6 +62,10 @@
                                 Status
                             </th>
 
+                            <th scope="col">
+
+                            </th>
+
                         </tr>
                     </thead>
                     <tbody class="list">
@@ -102,11 +106,11 @@
                                 </span>
                                 @elseif($article->status == 3)
                                 <span class="badge badge-dot mr-4">
-                                    <i class="bg-primary"></i> ditinjau
+                                    <i class="bg-warning"></i> antrian
                                 </span>
                                 @elseif($article->status == 2)
                                 <span class="badge badge-dot mr-4">
-                                    <i class="bg-warning"></i> ditunda
+                                    <i class="bg-primary"></i> ditinjau
                                 </span>
                                 @elseif($article->status == 1)
                                 <span class="badge badge-dot mr-4">
