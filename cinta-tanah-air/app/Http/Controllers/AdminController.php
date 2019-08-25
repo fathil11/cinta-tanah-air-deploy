@@ -84,7 +84,7 @@ class AdminController extends Controller
                 $new_cat->save();
             }
         }
-        return redirect(url('admin/kelola-artikel'))->with('status', 'Artikel berhasil dibuat.');
+        return redirect(url('admin/kelola-artikel'))->with('success', 'Artikel berhasil dibuat.');
     }
 
     public function showKelolaArtikel()
@@ -105,7 +105,7 @@ class AdminController extends Controller
         $article = Article::find($id);
         $article->status = 1;
         if ($article->save()) {
-            return redirect(url('admin/kelola-artikel'))->with('status', 'Artikel berhasil diterbitkan');
+            return redirect(url('admin/kelola-artikel'))->with('sucess', 'Artikel berhasil diterbitkan');
         }
     }
 
@@ -115,7 +115,7 @@ class AdminController extends Controller
         $article = Article::find($id);
         $article->status = 2;
         if ($article->save()) {
-            return redirect(url('admin/kelola-artikel'))->with('status', 'Artikel berhasil ditunda');
+            return redirect(url('admin/kelola-artikel'))->with('success', 'Artikel berhasil ditunda');
         }
     }
 
@@ -245,7 +245,7 @@ class AdminController extends Controller
             $user->profile_picture = $name . '.' . $image->getClientOriginalExtension();
         }
         if ($user->save()) {
-            return redirect(url('admin/kelola-user'))->with('status', 'Berhasil mendaftarkan user');
+            return redirect(url('admin/kelola-user'))->with('success', 'Berhasil mendaftarkan user');
         }
     }
 
@@ -322,7 +322,7 @@ class AdminController extends Controller
         }
 
         if ($user->save()) {
-            return redirect(url('admin/kelola-user'))->with('status', 'Berhasil di update.');
+            return redirect(url('admin/kelola-user'))->with('success', 'Berhasil di update.');
         }
     }
 
