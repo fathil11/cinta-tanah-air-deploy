@@ -32,7 +32,7 @@
             <form action="{{ url('author/edit-artikel') . '/' . $article->id }}" method="post"
                 enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <input type="hidden" name="article_id" value="{{ $article->id }}" hidden>
+                <input type="hidden" name="article_id" value="{{ Crypt::encrypt($article->id) }}">}
 
                 <div class="container-fluid">
                     <br>

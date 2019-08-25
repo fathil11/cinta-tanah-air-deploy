@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth as IlluminateAuth;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
 use App\Traits\UploadTrait;
 use Carbon\Carbon;
@@ -12,8 +15,6 @@ use Auth;
 use App\User;
 use App\Article;
 use App\ArticleCategory;
-use Illuminate\Support\Facades\Auth as IlluminateAuth;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class AuthorController extends Controller
 {
@@ -112,7 +113,7 @@ class AuthorController extends Controller
 
     public function editArtikel(Request $request, $id)
     {
-        dd($request->article_id);
+        dd($request->article_id . '|' . Crypt::decrypt($request->article_id));
         $article = Article::findOrFail($id);
 
         $request->validate([
