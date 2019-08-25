@@ -23,6 +23,23 @@ class AdminController extends Controller
         return view('admin.welcome');
     }
 
+    public function catStat()
+    {
+        $category_set = ['budaya', 'pemberdayaan', 'pendidikan', 'sosial', 'hukum'];
+
+        foreach ($category_set as $cat_srch) {
+            $cat_stat[$cat_srch] = count(ArticleCategory::where('category', $cat_srch)->get());
+        }
+
+        return $cat_stat;
+    }
+
+    public function artStat()
+    {
+        $articles = Article::where('status', 1)->whereDate('created_at', date("Y-m-d"))->take(3)->get();
+        return $articles;
+    }
+
     public function showStatistic()
     {
         return view('admin.statistik');
@@ -391,8 +408,8 @@ class AdminController extends Controller
         $article->status = 2;
         $article->save();
 
-        $cat_stat = [];
-        $art_stat = [];
+        $cat_stat = $this->catStat();
+        $art_stat = $this->artStat();
 
         return view('admin.tinjauArtikel', ['article' => $article, 'cat_stat' => $cat_stat, 'art_stat' => $art_stat]);
     }
