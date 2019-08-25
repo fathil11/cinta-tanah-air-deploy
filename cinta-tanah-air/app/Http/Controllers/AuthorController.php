@@ -113,6 +113,10 @@ class AuthorController extends Controller
 
     public function editArtikel(Request $request, $id)
     {
+        $id_check = Crypt::decrypt($request->article_id);
+        if(!$id_check){
+            dd('tes');
+        }
         if($id != Crypt::decrypt($request->article_id)){
             return redirect(url('author/kelola-artikel'))->with('error', 'Terjadi Kesalahan.');
         }
