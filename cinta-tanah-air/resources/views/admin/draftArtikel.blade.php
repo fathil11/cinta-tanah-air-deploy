@@ -114,6 +114,7 @@
         </div>
     </div>
 </div>
+@endsection
 <script>
     function reloadAndOpenNewTab(url){
         //Open in new tab
@@ -124,4 +125,3 @@
         location.reload();
     }
 </script>
-@endsection
