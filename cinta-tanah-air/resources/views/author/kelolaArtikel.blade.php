@@ -38,31 +38,31 @@
                 <table id="article_table" class="table align-items-center">
                     <thead class="thead-light">
                         <tr>
-                            <th>
+                            <th scope="col">
                                 Id
                             </th>
 
-                            <th>
+                            <th scope="col">
                                 Judul Artikel
                             </th>
 
-                            <th>
+                            <th scope="col">
                                 Tipe Artikel
                             </th>
 
-                            <th>
+                            <th scope="col">
                                 Kategori
                             </th>
 
-                            <th>
+                            <th scope="col">
                                 Tanggal
                             </th>
 
-                            <th>
+                            <th scope="col">
                                 Status
                             </th>
 
-                            <th>
+                            <th scope="col">
 
                             </th>
 
