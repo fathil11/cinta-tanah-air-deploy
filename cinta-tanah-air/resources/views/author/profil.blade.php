@@ -87,7 +87,7 @@
                             <input type="hidden" name="h" value="" />
                             <br><br>
                             <img width="400" id="previewimage" style="display:none;" />
-
+                            <p>*Biarkan kosong jika tidak mau merubah gambar.</p>
                         </div>
                     </div>
                     <br>
@@ -100,6 +100,7 @@
                                 <input type="password" class="form-control form-control-alternative" name="password"
                                     placeholder="Kosongkan jika tidak ingin merubah ...">
                             </div>
+                            <p>*Biarkan kosong jika tidak mau merubah password.</p>
                         </div>
                     </div>
                     <br>
@@ -112,30 +113,7 @@
                                 <input type="password" class="form-control form-control-alternative"
                                     name="password_confirmation" placeholder="Kosongkan jika tidak ingin merubah ...">
                             </div>
-                        </div>
-                    </div>
-                    <br>
-
-                    {{-- Input Level User --}}
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <b>Jenis User</b>
-                                <div class="custom-control custom-radio mb-3">
-                                    <input name="role" class="custom-control-input" id="admin" type="radio"
-                                        value="admin" @if ($user->role == 1)
-                                    checked
-                                    @endif>
-                                    <label class="custom-control-label" for="admin">Admin</label>
-                                </div>
-                                <div class="custom-control custom-radio mb-3">
-                                    <input name="role" class="custom-control-input" id="penulis" type="radio"
-                                        value="author" @if ($user->role == 2)
-                                    checked
-                                    @endif>
-                                    <label class="custom-control-label" for="penulis">Penulis</label>
-                                </div>
-                            </div>
+                            <p>*Biarkan kosong jika tidak mau merubah password.</p>
                         </div>
                     </div>
                     <br>
