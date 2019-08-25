@@ -121,7 +121,7 @@ class AuthorController extends Controller
         }
 
         $request->session()->forget('update_checker');
-        dd('berhasil');
+
         $article = Article::findOrFail($id);
 
         $request->validate([
