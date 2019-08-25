@@ -23,7 +23,8 @@
         @elseif (Session::has('error'))
         <div class="col-md-12">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <div @foreach ($errors->all() as $error)
+                <div>
+                    @foreach ($errors->all() as $error)
                     <li>
                         <span class="alert-inner--text">{{ $error }}</span>
                     </li>
