@@ -97,7 +97,7 @@ class AuthorController extends Controller
     {
         $article = Article::find($id);
         // Validasi Pembuat Artikel
-        if($article->auhtor_id != Auth::user()->id){
+        if($article->author_id != Auth::user()->id){
             return redirect(url('author/kelola-artikel'))->with('error', 'Artikel bukan buatan anda, tidak bisa di edit.');
         }
         // Validasi Status Artikel
