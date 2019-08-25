@@ -17,7 +17,7 @@
 @elseif ($errors->any())
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
     <div>
-        <ul style="none">
+        <ul style="list-style-type: none;">
             @foreach ($errors->all() as $error)
             <li>
                 <span class="alert-inner--icon"><i class="ni ni-bell-55"></i></span>
