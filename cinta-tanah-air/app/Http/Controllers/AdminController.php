@@ -96,7 +96,8 @@ class AdminController extends Controller
 
     public function showDraftArtikel()
     {
-        return view('admin.draftArtikel');
+        $articles = Article::where('status', '3')->where('status', '2');
+        return view('admin.draftArtikel', ['articles' => $articles]);
     }
 
     // Terbitkan Artikel
