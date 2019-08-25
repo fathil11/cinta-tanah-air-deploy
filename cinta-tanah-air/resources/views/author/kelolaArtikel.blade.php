@@ -35,7 +35,7 @@
         <div class="card shadow cardcustom">
             <div class="container">
                 <br>
-                <table id="article_table" class="table align-items-center table-responsive">
+                <table id="article_table" class="table-responsive table align-items-center">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">
