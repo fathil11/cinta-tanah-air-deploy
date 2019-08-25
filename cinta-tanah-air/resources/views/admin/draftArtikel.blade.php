@@ -80,7 +80,7 @@
                                     </span>
                                     @elseif($article->status == 3)
                                     <span class="badge badge-dot mr-4">
-                                        <i class="bg-info"></i> antrian
+                                        <i class="bg-warning"></i> antrian
                                     </span>
                                     @endif
                                 </td>
