@@ -92,8 +92,9 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" target="_blank"
-                                                href="{{ url('admin/tinjau-artikel') . '/' . $article->id }}">Tinjau</a>
+                                            <a class="dropdown-item"
+                                                onclick="reloadAndOpenNewTab({{ url('admin/tinjau-artikel') . '/' . $article->id }})"
+                                                href="#">Tinjau</a>
                                             <a class="dropdown-item"
                                                 href="{{ url('admin/edit-artikel') . '/' . $article->id }}">Edit</a>
                                             <a class="dropdown-item"
@@ -113,4 +114,14 @@
         </div>
     </div>
 </div>
+<script>
+    function reloadAndOpenNewTab{
+        //Open in new tab
+        window.open(url, '_blank');
+        //focus to thet window
+        window.focus();
+        //reload current page
+        location.reload();
+    }
+</script>
 @endsection
