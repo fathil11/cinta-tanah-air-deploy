@@ -17,12 +17,14 @@
 @elseif ($errors->any())
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
     <div>
-        @foreach ($errors->all() as $error)
-        <li style="none">
-            <span class="alert-inner--icon"><i class="ni ni-bell-55"></i></span>
-            <span class="alert-inner--text">{{ $error }}</span>
-        </li>
-        @endforeach
+        <ul style="none">
+            @foreach ($errors->all() as $error)
+            <li>
+                <span class="alert-inner--icon"><i class="ni ni-bell-55"></i></span>
+                <span class="alert-inner--text">{{ $error }}</span>
+            </li>
+            @endforeach
+        </ul>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
