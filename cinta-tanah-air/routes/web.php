@@ -53,7 +53,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('draft-artikel', 'AdminController@showDraftArtikel');
 
     // Show Tinjau Artikel
-    Route::get('tinjau-artikel/{id}', 'AdminController@showEditArtikel');
+    Route::get('tinjau-artikel/{id}', 'AdminController@showTinjauArtikel');
 
     // Show Edit Artikel
     Route::get('edit-artikel/{id}', 'AdminController@showEditArtikel');
