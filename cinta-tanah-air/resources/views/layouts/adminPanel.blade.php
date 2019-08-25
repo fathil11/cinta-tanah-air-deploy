@@ -289,18 +289,18 @@
 
     {{-- JS Init --}}
     <script>
+        function reloadAndOpenNewTab(url){
+            //Open in new tab
+            console.log(url);
+            window.open('https://cintatanahair.id/admin/tinjau-artikel/' +url, '_blank');
+            //focus to thet window
+            window.focus();
+            //reload current page
+            location.reload();
+        }
         // Data Table Init
         $(document).ready( function () {
 
-    function reloadAndOpenNewTab(url){
-        //Open in new tab
-        console.log(url);
-        window.open('https://cintatanahair.id/admin/tinjau-artikel/' +url, '_blank');
-        //focus to thet window
-        window.focus();
-        //reload current page
-        location.reload();
-    }
 
     $('#article_table').DataTable({
     "info": false,
