@@ -118,7 +118,7 @@
                                 </span>
                                 @endif
                             </td>
-                            <td>
+
                             <td class="text-right">
                                 <div class="dropdown">
                                     <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
@@ -132,7 +132,6 @@
                                             href="{{ url('author/delete-artikel') . '/' . $article->id }}">Delete</a>
                                     </div>
                                 </div>
-                            </td>
                             </td>
                         </tr>
                         @endforeach
