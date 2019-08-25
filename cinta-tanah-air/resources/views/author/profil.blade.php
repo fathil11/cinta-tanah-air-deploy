@@ -100,7 +100,6 @@
                                 <input type="password" class="form-control form-control-alternative" name="password"
                                     placeholder="Kosongkan jika tidak ingin merubah ...">
                             </div>
-                            <p>*Biarkan kosong jika tidak mau merubah password.</p>
                         </div>
                     </div>
                     <br>
@@ -113,7 +112,6 @@
                                 <input type="password" class="form-control form-control-alternative"
                                     name="password_confirmation" placeholder="Kosongkan jika tidak ingin merubah ...">
                             </div>
-                            <p>*Biarkan kosong jika tidak mau merubah password.</p>
                         </div>
                     </div>
                     <br>
@@ -121,7 +119,7 @@
                     {{-- Tombol Posting --}}
                     <div class="row">
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary">Update User</button>
+                            <button type="submit" class="btn btn-primary">Update Profil</button>
                         </div>
                     </div>
                     <br>
