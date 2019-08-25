@@ -288,7 +288,7 @@ class AdminController extends Controller
         $user->email = $request->email;
         $user->moto = $request->moto;
 
-        if ($request->has('password')) {
+        if ($request->password != null) {
             $user->password = bcrypt($request->password);
         }
 
