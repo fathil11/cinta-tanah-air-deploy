@@ -18,7 +18,7 @@
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
     <div>
         @foreach ($errors->all() as $error)
-        <li>
+        <li style="list-style-type: none;">
             <span class="alert-inner--icon"><i class="ni ni-bell-55"></i></span>
             <span class="alert-inner--text">{{ $error }}</span>
         </li>
