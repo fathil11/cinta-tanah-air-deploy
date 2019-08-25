@@ -231,7 +231,7 @@ class AuthorController extends Controller
 
             $user->profile_picture = $name . '.' . $image->getClientOriginalExtension();
         }
-
+        dd('tes');
         if ($user->save()) {
             return redirect(url('author/profil'))->with('success', 'Berhasil di update.');
         }
