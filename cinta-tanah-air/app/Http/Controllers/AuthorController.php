@@ -176,4 +176,65 @@ class AuthorController extends Controller
         $user = User::findOrFail(Auth::user()->id);
         return view('author.profil', ['user' => $user]);
     }
+
+    public function editProfil(Request $request)
+    {
+
+        $user = User::findOrFail(Auth::user()->id);
+
+        if ($request->email == $user->email) {
+            $request->validate([
+                'name' => 'required|min:3|max:50',
+                'moto' => 'max:100',
+                'password' => 'nullable|min:8',
+                'password_confirmation' => 'nullable|same:password',
+                'role' => 'required',
+            ]);
+        } else {
+            $request->validate([
+                'name' => 'required|min:3|max:50',
+                'email' => 'required|unique:users,email',
+                'moto' => 'max:100',
+                'password' => 'nullable|min:8',
+                'password_confirmation' => 'nullable|same:password',
+                'role' => 'required',
+            ]);
+        }
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->moto = $request->moto;
+
+        if ($request->has('password')) {
+            $user->password = bcrypt($request->password);
+        }
+
+        if($request->has('profile_picture')){
+            // Get image file
+            $image = $request->file('profile_picture');
+            // Make a image name based on user name and current timestamp
+            $name = str_slug($request->input('name')) . '_' . time();
+            // Define folder path
+            $folder = 'img/user_picture/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
+            // Upload image
+            if ($this->uploadOne($image, $folder, 'public', $name)) {
+                // Crop
+                $img = Image::make(public_path($filePath));
+                $croppath = public_path($filePath);
+
+                $img->crop($request->input('w'), $request->input('h'), $request->input('x1'), $request->input('y1'));
+
+                $img->save($croppath);
+            }
+
+            $user->profile_picture = $name . '.' . $image->getClientOriginalExtension();
+        }
+
+        if ($user->save()) {
+            return redirect(url('author/profil'))->with('success', 'Berhasil di update.');
+        }
+
+    }
 }
