@@ -36,7 +36,7 @@
     @endif
     <div class="col">
         <div class="card shadow cardcustom">
-            <form action="{{ url('admin/edit-user') . '/' . $user->id }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('author/edit-profil') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
                 <div class="container-fluid">

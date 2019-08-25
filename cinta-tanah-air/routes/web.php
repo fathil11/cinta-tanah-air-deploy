@@ -110,6 +110,9 @@ Route::group(['prefix' => 'author', 'middleware' => 'author'], function () {
 
     // Show Profil
     Route::get('profil', 'AuthorController@showProfil');
+
+    // Edit Profil
+    Route::get('edit-profil', 'AuthorController@editProfil');
 });
 
 Auth::routes();
