@@ -204,11 +204,12 @@ class AuthorController extends Controller
         $user->moto = $request->moto;
 
         if ($request->has('password')) {
-            dd($request->password);
-            $user->password = bcrypt($request->password);
+            // dd($request->password);
+            // $user->password = bcrypt($request->password);
         }
 
         if($request->has('profile_picture')){
+            dd('tes');
             // Get image file
             $image = $request->file('profile_picture');
             // Make a image name based on user name and current timestamp
