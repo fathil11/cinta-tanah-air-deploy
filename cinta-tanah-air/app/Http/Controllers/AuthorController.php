@@ -92,4 +92,21 @@ class AuthorController extends Controller
         $articles = Article::where('author_id', Auth::user()->id)->get();
         return view('author.kelolaArtikel', ['articles' => $articles]);
     }
+
+    public function showEditArtikel($id)
+    {
+        $article = Article::find($id);
+        // Validasi Pembuat Artikel
+        if($article->auhtor_id != Auth::user()->id){
+            return redirect(url('author/kelola-artikel'))->with('error', 'Artikel bukan buatan anda, tidak bisa di edit.');
+        }
+        // Validasi Status Artikel
+        if($article->status == 1){
+            return redirect(url('author/kelola-artikel'))->with('error', 'Artikel sudah diterbitkan, tidak bisa di edit.');
+        }elseif($article->status == 2){
+            return redirect(url('author/kelola-artikel'))->with('error', 'Artikel sedang ditinjau, tidak bisa di edit.');
+        }
+
+        return view('author.editArtikel', ['article' => $article]);
+    }
 }
