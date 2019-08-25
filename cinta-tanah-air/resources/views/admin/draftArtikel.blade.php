@@ -13,7 +13,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card shadow cardcustom">
-            <div class="container">
+            <div class="container table-responsive">
                 <br>
                 <div>
                     <table id="article_table" class="table align-items-center">

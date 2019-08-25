@@ -70,9 +70,9 @@
                         <div class=" dropdown-header noti-title">
                             <h6 class="text-overflow m-0">Welcome!</h6>
                         </div>
-                        <a href="{{ url('admin/edit-user') . '/' . Auth::user()->id}}" class="dropdown-item">
+                        <a href="{{ url('admin/profil') }}" class="dropdown-item">
                             <i class="ni ni-single-02"></i>
-                            <span>My profile</span>
+                            <span>Profile</span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="{{ url('logout') }}" class="dropdown-item">
@@ -219,7 +219,7 @@
                             <div class=" dropdown-header noti-title">
                                 <h6 class="text-overflow m-0">Welcome!</h6>
                             </div>
-                            <a href="{{ url('admin/edit-user') . '/' . Auth::user()->id}}" class="dropdown-item">
+                            <a href="{{ url('admin/profil') }}" class="dropdown-item">
                                 <i class="ni ni-single-02"></i>
                                 <span>Profil</span>
                             </a>

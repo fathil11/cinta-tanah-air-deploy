@@ -85,6 +85,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
     // Buat User
     Route::post('buat-user', 'AdminController@buatUser');
+
+    // Show Profil
+    Route::get('profil', 'AdminController@showProfil');
+
+    // Edit Profil
+    Route::post('edit-profil', 'AdminController@editProfil');
 });
 
 /// Author Route
