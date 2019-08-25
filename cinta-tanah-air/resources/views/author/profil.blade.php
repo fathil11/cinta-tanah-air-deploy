@@ -38,7 +38,7 @@
         <div class="card shadow cardcustom">
             <form action="{{ url('author/edit-profil') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                {{ method_field('PUT') }}
+
                 <div class="container-fluid">
                     <br>
                     <div class="col-md-12">
