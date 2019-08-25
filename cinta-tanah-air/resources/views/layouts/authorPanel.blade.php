@@ -244,16 +244,8 @@
                 "info": false,
                 "lengthMenu": [ 5, 10, 15, 20, 25 ],
                 "pageLength": 5,
-                // "columnDefs": [{ "orderable": false, "targets": 6 },
-                //             {"searchable": false, "targets": 6}]
-            });
-
-            $('#users_table').DataTable({
-                "info": false,
-                "lengthMenu": [ 5, 10, 15, 20 ],
-                "pageLength": 5,
-                "columnDefs": [{ "orderable": false, "targets": 4 },
-                            {"searchable": false, "targets": 4}]
+                "columnDefs": [{ "orderable": false, "targets": 6 },
+                            {"searchable": false, "targets": 6}]
             });
 
             $('input[type="file"]').change(function(e){
