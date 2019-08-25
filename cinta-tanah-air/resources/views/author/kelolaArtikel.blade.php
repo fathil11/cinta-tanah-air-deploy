@@ -71,14 +71,14 @@
                     <tbody class="list">
                         @foreach ($articles as $article)
                         <tr>
-                            <td>
+                            <th scope="row">
                                 {{ $article->id }}
-                            </td>
+                            </th>
 
-                            <td scope="row">
+                            <th scope="row">
                                 <a target="blank"
                                     href="{{ 'https://www.cintatanahair.id/lihat-artikel/' . $article->slug }}">{{ $article->title }}</a>
-                            </td>
+                            </th>
 
                             <td>
                                 {{ $article->type }}
