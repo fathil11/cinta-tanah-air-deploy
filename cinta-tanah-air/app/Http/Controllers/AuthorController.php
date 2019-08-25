@@ -114,13 +114,13 @@ class AuthorController extends Controller
 
     public function editArtikel(Request $request, $id)
     {
-        $update_checker = Session::get('update_checker');
+        $update_checker = $request->session()->get('update_checker');
 
         if($id != $update_checker){
             return redirect(url('author/kelola-artikel'))->with('error', 'Terjadi kesalahan.');
         }
 
-        Session::forget('update_checker');
+        $request->session()->forget('update_checker');
         $article = Article::findOrFail($id);
 
         $request->validate([
