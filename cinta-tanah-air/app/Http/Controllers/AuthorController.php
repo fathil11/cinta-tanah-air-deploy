@@ -188,7 +188,6 @@ class AuthorController extends Controller
                 'moto' => 'max:100',
                 'password' => 'nullable|min:8',
                 'password_confirmation' => 'nullable|same:password',
-                'role' => 'required',
             ]);
         } else {
             $request->validate([
@@ -197,7 +196,6 @@ class AuthorController extends Controller
                 'moto' => 'max:100',
                 'password' => 'nullable|min:8',
                 'password_confirmation' => 'nullable|same:password',
-                'role' => 'required',
             ]);
         }
 
