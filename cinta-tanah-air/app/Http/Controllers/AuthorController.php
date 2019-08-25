@@ -95,7 +95,7 @@ class AuthorController extends Controller
 
     public function showEditArtikel($id)
     {
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
         // Validasi Pembuat Artikel
         if($article->author_id != Auth::user()->id){
             return redirect(url('author/kelola-artikel'))->with('error', 'Artikel bukan buatan anda, tidak bisa di edit.');
@@ -112,7 +112,7 @@ class AuthorController extends Controller
 
     public function editArtikel(Request $request, $id)
     {
-        $article = Article::findOrFail($id);
+        $article = Article::find($id);
 
         $request->validate([
             'title' => 'required|min:5|max:50',
