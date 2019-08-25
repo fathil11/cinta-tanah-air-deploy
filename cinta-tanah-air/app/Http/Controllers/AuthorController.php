@@ -108,6 +108,7 @@ class AuthorController extends Controller
             return redirect(url('author/kelola-artikel'))->with('error', 'Artikel sedang ditinjau, tidak bisa di edit.');
         }
 
+        session(['id_checker' => $article->id]);
         return view('author.editArtikel', ['article' => $article]);
     }
 
