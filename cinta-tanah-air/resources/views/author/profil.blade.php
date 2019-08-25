@@ -11,7 +11,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col">
+    <div class="col-md-12">
         @if (Session::has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <span class="alert-inner--icon"><i class="ni ni-bell-55"></i></span>
@@ -35,6 +35,8 @@
             </div>
         </div>
         @endif
+    </div>
+    <div class="col">
         <div class="card shadow cardcustom">
             <form action="{{ url('author/edit-profil') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
