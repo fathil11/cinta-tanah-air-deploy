@@ -109,4 +109,58 @@ class AuthorController extends Controller
 
         return view('author.editArtikel', ['article' => $article]);
     }
+
+    public function editArtikel(Request $request, $id)
+    {
+        $article = Article::findOrFail($id);
+
+        $request->validate([
+            'title' => 'required|min:5|max:50',
+            'banner_path' => 'bail|image|mimes:jpeg,png,jpg,gif|max:10000',
+            'article_type' => 'required',
+            'cat' => 'nullable',
+            'editor' => 'bail|required|min:30|max:10000'
+        ]);
+        $article->title = $request->title;
+        $article->slug = str_slug($request->title, '-');
+        $article->type = $request->article_type;
+        $article->article = $request->editor;
+
+        if ($request->has('banner_path')) {
+            // Get image file
+            $image = $request->file('banner_path');
+            // Make a image name based on user name and current timestamp
+            $name = str_slug($request->input('title')) . '_' . time();
+            // Define folder path
+            $folder = 'img/blog/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
+            // Upload image
+            if ($this->uploadOne($image, $folder, 'public', $name)) {
+                // Crop
+                $img = Image::make(public_path($filePath));
+                $croppath = public_path($filePath);
+
+                $img->crop($request->input('w'), $request->input('h'), $request->input('x1'), $request->input('y1'));
+
+                $img->save($croppath);
+            }
+
+            $article->banner_path = $name . '.' . $image->getClientOriginalExtension();
+        }
+
+        $article->save();
+
+        $cat_clear = ArticleCategory::where('article_id', $id);
+        $cat_clear->delete();
+
+        foreach ($request->cat as $ca) {
+            $new_cat = new ArticleCategory();
+            $new_cat->article_id = $article->id;
+            $new_cat->category = $ca;
+            $new_cat->save();
+        }
+
+        return redirect(url('author/kelola-artikel'))->with('success', 'Artikel berhasil di edit.');
+    }
 }

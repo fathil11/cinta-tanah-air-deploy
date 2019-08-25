@@ -62,6 +62,7 @@
                             <br><br>
                             <img width="400" id="previewimage" style="display:none;" />
                         </div>
+                        <p>*Biarkan kosong jika tidak mau merubah gambar.</p>
                     </div>
                     <br><br>
 
