@@ -115,7 +115,7 @@
     </div>
 </div>
 <script>
-    function reloadAndOpenNewTab{
+    function reloadAndOpenNewTab(url){
         //Open in new tab
         window.open(url, '_blank');
         //focus to thet window
