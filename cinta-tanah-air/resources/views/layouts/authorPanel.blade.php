@@ -126,7 +126,8 @@
 
                 <ul class="navbar-nav mb-md-3">
                     <li class="nav-item">
-                        <a class="nav-link  active " href="{{ url('author/profil') }}">
+                        <a class="nav-link @if(Request::is('author/kelola-artikel')) {{'active'}} @endif"
+                            href="{{ url('author/profil') }}">
                             <i class="ni ni-single-02 text-yellow"></i> Profil
                         </a>
                     </li>
