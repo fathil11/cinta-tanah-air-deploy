@@ -59,42 +59,43 @@ Cinta Tanah Air
                     </div>
                 </div>
                 <br>
-                <div class="jumbotron">
-                    <a class="btn btn-lg btn-outline-secondary cs" href="{{ url('admin/draft-artikel') }}">Kembali</a>
-                    <a class="btn btn-lg btn-outline-warning"
-                        href="{{ url('admin/edit-artikel') . '/' . $article->id }}">Edit
-                        Artikel</a>
-                    <a class="btn btn-lg btn-outline-success"
-                        href="{{ url('admin/terbit-artikel') . '/' . $article->id }}">Terbitkan
-                        Artikel</a>
-                    <a class="btn btn-lg btn-outline-danger"
-                        href="{{ url('admin/tolak-artikel') . '/' . $article->id }}">Tolak
-                        Artikel</a>
-                </div>
-                {{-- <div class="comments-area">
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <a class="btn btn-lg btn-outline-secondary cs" href="{{ url('admin/draft-artikel') }}">Kembali</a>
+        <a class="btn btn-lg btn-outline-warning" href="{{ url('admin/edit-artikel') . '/' . $article->id }}">Edit
+            Artikel</a>
+        <a class="btn btn-lg btn-outline-success"
+            href="{{ url('admin/terbit-artikel') . '/' . $article->id }}">Terbitkan
+            Artikel</a>
+        <a class="btn btn-lg btn-outline-danger" href="{{ url('admin/tolak-artikel') . '/' . $article->id }}">Tolak
+            Artikel</a>
+    </div>
+    {{-- <div class="comments-area">
                     <h4>3 Comments</h4>
                     <div class="comment-list">
                         <div class="single-comment justify-content-between d-flex">
                             <div class="user justify-content-between d-flex">
                                 <div class="thumb">
                                     <img src="{{ asset('img/comment/comment_1.png') }}" alt="">
-            </div>
-            <div class="desc">
-                <p class="comment">
-                    Multiply sea night grass fourth day sea lesser rule open subdue female fill
-                    which them
-                    Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                </p>
-                <div class="d-flex justify-content-between">
-                    <div class="d-flex align-items-center">
-                        <h5>
-                            <a href="#">Emilly Blunt</a>
-                        </h5>
-                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                    </div>
-                </div>
+    </div>
+    <div class="desc">
+        <p class="comment">
+            Multiply sea night grass fourth day sea lesser rule open subdue female fill
+            which them
+            Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+        </p>
+        <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <h5>
+                    <a href="#">Emilly Blunt</a>
+                </h5>
+                <p class="date">December 4, 2017 at 3:12 pm </p>
             </div>
         </div>
+    </div>
+    </div>
     </div>
     </div>
     <div class="comment-list">
