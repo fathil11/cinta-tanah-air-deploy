@@ -1,5 +1,5 @@
 @extends('layouts.blog')
-@include('assets.argon')
+
 @section('judul')
 Cinta Tanah Air
 @endsection
