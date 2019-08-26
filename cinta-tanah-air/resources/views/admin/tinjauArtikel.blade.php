@@ -60,8 +60,8 @@ Cinta Tanah Air
                 </div>
                 <br>
                 <div class="jumbotron">
-                    <form class="btn btn-primary" method="get" action="/page2">
-                        <button type="submit">Continue</button>
+                    <form method="get" action="/page2">
+                        <button class="btn btn-primary" type="submit">Continue</button>
                     </form>
                 </div>
                 {{-- <div class="comments-area">
