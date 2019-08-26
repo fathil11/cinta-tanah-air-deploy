@@ -411,8 +411,6 @@ class AdminController extends Controller
         $cat_stat = $this->catStat();
         $art_stat = $this->artStat();
 
-
-
         return view('admin.tinjauArtikel', ['article' => $article, 'cat_stat' => $cat_stat, 'art_stat' => $art_stat]);
     }
 }

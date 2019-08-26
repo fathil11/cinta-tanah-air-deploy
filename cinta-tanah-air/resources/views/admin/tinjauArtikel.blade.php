@@ -58,40 +58,30 @@ Cinta Tanah Air
                         </div>
                     </div>
                 </div>
-
-                {{-- <div class="container">
-                    <a class="btn btn-default" href="{{ url('admin/draft-artikel') }}">Kembali</a>
-                <a class="btn btn-info" href="{{ url('admin/edit-artikel') . '/' . $article->id }}">Edit
-                    Artikel</a>
-                <a class="btn btn-danger" href="{{ url('admin/tolak-artikel') . '/' . $article->id }}">Tolak
-                    Artikel</a>
-                <a class="btn btn-success" href="{{ url('admin/terbit-artikel') . '/' . $article->id }}">Terbitkan
-                    Artikel</a>
-            </div> --}}
-            {{-- <div class="comments-area">
+                {{-- <div class="comments-area">
                     <h4>3 Comments</h4>
                     <div class="comment-list">
                         <div class="single-comment justify-content-between d-flex">
                             <div class="user justify-content-between d-flex">
                                 <div class="thumb">
                                     <img src="{{ asset('img/comment/comment_1.png') }}" alt="">
-        </div>
-        <div class="desc">
-            <p class="comment">
-                Multiply sea night grass fourth day sea lesser rule open subdue female fill
-                which them
-                Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-            </p>
-            <div class="d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h5>
-                        <a href="#">Emilly Blunt</a>
-                    </h5>
-                    <p class="date">December 4, 2017 at 3:12 pm </p>
+            </div>
+            <div class="desc">
+                <p class="comment">
+                    Multiply sea night grass fourth day sea lesser rule open subdue female fill
+                    which them
+                    Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                </p>
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <h5>
+                            <a href="#">Emilly Blunt</a>
+                        </h5>
+                        <p class="date">December 4, 2017 at 3:12 pm </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     </div>
     <div class="comment-list">
@@ -143,31 +133,6 @@ Cinta Tanah Air
         </div>
     </div>
     </div> --}}
-    <div class="comment-form">
-        <h4>Tulis Komentar</h4>
-        <form class="form-contact comment_form" action="#" id="commentForm">
-            <div class="row">
-                <div class="col-12">
-                    <div class="form-group">
-                        <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="3"
-                            placeholder="Tulis komentar ..."></textarea>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <input class="form-control" name="name" id="name" type="text" placeholder="Nama">
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <input class="form-control" name="email" id="email" type="email" placeholder="Email">
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="button button-contactForm">Kirim Komentar</button>
-            </div>
-        </form>
-    </div>
+
     </div>
     @endsection
