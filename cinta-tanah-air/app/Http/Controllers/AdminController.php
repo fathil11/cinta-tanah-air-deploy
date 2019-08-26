@@ -192,6 +192,19 @@ class AdminController extends Controller
         return redirect(url('admin/draft-artikel'))->with('success', 'Artikel berhasil di edit.');
     }
 
+    public function tolakArtikel($id)
+    {
+        $article = Article::findOrFail($id);
+
+        if($article->status == 1){
+            return abort(404);
+        }
+
+        $article->status = 4;
+        if($article->save()){
+            return redirect(url('admin/draft-artikel'))->with('success', 'Artikel berhasil ditolak');
+        }
+    }
     // Buat User
     public function showBuatUser()
     {

@@ -64,6 +64,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     // Terbitkan Artikel
     Route::get('terbit-artikel/{id}', 'AdminController@terbitArtikel');
 
+    // Tolak Artikel
+    Route::get('tolak-artikel/{id}', 'AdminController@tolakArtikel');
+
     // Show Kelola User
     Route::get('kelola-user', 'AdminController@showKelolaUser');
 
