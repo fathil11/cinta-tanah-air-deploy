@@ -59,16 +59,15 @@ Cinta Tanah Air
                     </div>
                 </div>
 
-                <div class="container">
+                {{-- <div class="container">
                     <a class="btn btn-default" href="{{ url('admin/draft-artikel') }}">Kembali</a>
-                    <a class="btn btn-info" href="{{ url('admin/edit-artikel') . '/' . $article->id }}">Edit
-                        Artikel</a>
-                    <a class="btn btn-danger" href="{{ url('admin/tolak-artikel') . '/' . $article->id }}">Tolak
-                        Artikel</a>
-                    <a class="btn btn-success" href="{{ url('admin/terbit-artikel') . '/' . $article->id }}">Terbitkan
-                        Artikel</a>
-                </div>
-            </div>
+                <a class="btn btn-info" href="{{ url('admin/edit-artikel') . '/' . $article->id }}">Edit
+                    Artikel</a>
+                <a class="btn btn-danger" href="{{ url('admin/tolak-artikel') . '/' . $article->id }}">Tolak
+                    Artikel</a>
+                <a class="btn btn-success" href="{{ url('admin/terbit-artikel') . '/' . $article->id }}">Terbitkan
+                    Artikel</a>
+            </div> --}}
             {{-- <div class="comments-area">
                     <h4>3 Comments</h4>
                     <div class="comment-list">
