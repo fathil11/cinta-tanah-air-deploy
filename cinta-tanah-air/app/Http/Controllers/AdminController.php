@@ -189,7 +189,7 @@ class AdminController extends Controller
             $new_cat->save();
         }
 
-        return redirect(url('admin/kelola-artikel'))->with('success', 'Artikel berhasil di edit.');
+        return redirect(url('admin/draft-artikel'))->with('success', 'Artikel berhasil di edit.');
     }
 
     // Buat User
