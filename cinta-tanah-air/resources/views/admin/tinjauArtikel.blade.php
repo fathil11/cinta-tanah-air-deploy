@@ -63,25 +63,25 @@ Cinta Tanah Air
                     <div class="row">
                         <div class="col-md-3">
                             <form method="get" action="{{ url('admin/draft-artikel') }}">
-                                <button class="btn btn-outline-secondary" type="submit">Kembali</button>
+                                <button class="btn btn-lg btn-outline-secondary" type="submit">Kembali</button>
                             </form>
                         </div>
 
                         <div class="col-md-3">
                             <form method="get" action="{{ url('admin/edit-artikel') . '/' . $article->id}}">
-                                <button class="btn btn-outline-info" type="submit">Edit Artikel</button>
+                                <button class="btn btn-lg btn-outline-info" type="submit">Edit Artikel</button>
                             </form>
                         </div>
 
                         <div class="col-md-3">
                             <form method="get" action="{{ url('admin/terbit-artikel') . '/' . $article->id}}">
-                                <button class="btn btn-outline-success" type="submit">Terbitkan Artikel</button>
+                                <button class="btn btn-lg btn-outline-success" type="submit">Terbitkan Artikel</button>
                             </form>
                         </div>
 
                         <div class="col-md-3">
                             <form method="get" action="{{ url('admin/tolak-artikel') . '/' . $article->id}}">
-                                <button class="btn btn-outline-warning" type="submit">Tolak Artikel</button>
+                                <button class="btn btn-lg btn-outline-warning" type="submit">Tolak Artikel</button>
                             </form>
                         </div>
                     </div>
