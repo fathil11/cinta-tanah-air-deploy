@@ -60,8 +60,17 @@ Cinta Tanah Air
                 </div>
                 <br>
                 <div class="jumbotron">
-                    <form method="get" action="/page2">
-                        <button class="btn btn-primary" type="submit">Continue</button>
+                    <form method="get" action="{{ url('admin/draft-artikel') }}">
+                        <button class="btn btn-outline-secondary" type="submit">Kembali</button>
+                    </form>
+                    <form method="get" action="{{ url('admin/edit-artikel') . '/' . $article->id}}">
+                        <button class="btn btn-outline-info" type="submit">Edit Artikel</button>
+                    </form>
+                    <form method="get" action="{{ url('admin/terbit-artikel') . '/' . $article->id}}">
+                        <button class="btn btn-outline-success" type="submit">Terbitkan Artikel</button>
+                    </form>
+                    <form method="get" action="{{ url('admin/tolak-artikel') . '/' . $article->id}}">
+                        <button class="btn btn-outline-warning" type="submit">Tolak Artikel</button>
                     </form>
                 </div>
                 {{-- <div class="comments-area">
