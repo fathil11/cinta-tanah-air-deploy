@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-    @include('assets.argon')
+
 </head>
 
 <body>
