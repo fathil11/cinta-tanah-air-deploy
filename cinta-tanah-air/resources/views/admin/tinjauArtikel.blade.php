@@ -58,14 +58,17 @@ Cinta Tanah Air
                         </div>
                     </div>
                 </div>
+                <br>
                 <div class="jumbotron">
-                    <a class="btn btn-outline-secondary" href="{{ url('admin/draft-artikel') }}">Kembali</a>
-                    <a class="btn btn-outline-warning" href="{{ url('admin/edit-artikel') . '/' . $article->id }}">Edit
+                    <a class="btn btn-lg btn-outline-secondary cs" href="{{ url('admin/draft-artikel') }}">Kembali</a>
+                    <a class="btn btn-lg btn-outline-warning"
+                        href="{{ url('admin/edit-artikel') . '/' . $article->id }}">Edit
                         Artikel</a>
-                    <a class="btn btn-outline-success"
+                    <a class="btn btn-lg btn-outline-success"
                         href="{{ url('admin/terbit-artikel') . '/' . $article->id }}">Terbitkan
                         Artikel</a>
-                    <a class="btn btn-outline-danger" href="{{ url('admin/tolak-artikel') . '/' . $article->id }}">Tolak
+                    <a class="btn btn-lg btn-outline-danger"
+                        href="{{ url('admin/tolak-artikel') . '/' . $article->id }}">Tolak
                         Artikel</a>
                 </div>
                 {{-- <div class="comments-area">

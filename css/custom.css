@@ -49,3 +49,10 @@
 .button:hover {
     background-color: hsl(9, 79%, 54%);
 }
+
+.cs a {
+    /* color: #666666 !important; */
+    text-decoration: none;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
