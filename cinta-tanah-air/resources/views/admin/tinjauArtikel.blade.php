@@ -59,7 +59,7 @@ Cinta Tanah Air
                     </div>
                 </div>
                 <div class="jumbotron">
-                    <a class="btn btn-primary" href="{{ url('admin/draft-artikel') }}">Kembali</a>
+                    <a class="btn btn-primary tes" href="{{ url('admin/draft-artikel') }}">Kembali</a>
                     <a href="{{ url('admin/draft-artikel') . '/' . $article->id }}">Edit</a>
                     <a href="{{ url('admin/terbit-artikel') . '/' . $article->id }}">Terbitkan</a>
                     <a href="{{ url('admin/tolak-artikel') . '/' . $article->id }}">Tolak</a>
