@@ -99,7 +99,7 @@
                             </td>
 
                             <td class="status">
-                                {{ count($article->statistic }}
+                                {{ count($article->statistic) }}
                             </td>
 
                             <td class="text-right">
