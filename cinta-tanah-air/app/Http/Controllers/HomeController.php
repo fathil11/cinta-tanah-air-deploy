@@ -92,7 +92,7 @@ class HomeController extends Controller
             return abort(404);
         }
 
-        $client_ip = getUserIpAddr();
+        $client_ip = $this->getUserIpAddr();
         $check = ArticleStatistic::where([['article_id', $article->id], ['viewer_ip', $client_ip]])->first();
         dd($client_ip);
         $art_stat = new ArticleStatistic();
