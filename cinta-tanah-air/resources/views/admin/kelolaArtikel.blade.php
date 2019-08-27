@@ -59,7 +59,7 @@
                             </th>
 
                             <th scope="col">
-                                Status
+                                Dibaca
                             </th>
 
                             <th scope="col">

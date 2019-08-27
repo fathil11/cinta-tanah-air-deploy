@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 use App\Article;
 use App\ArticleCategory;
+use App\ArticleStatistic;
 
 class HomeController extends Controller
 {
@@ -40,6 +41,19 @@ class HomeController extends Controller
         }
 
         return $cat_stat;
+    }
+
+    public function getUserIpAddr(){
+        if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+            //ip from share internet
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+            //ip pass from proxy
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }else{
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
     }
 
     public function artStat()
@@ -77,6 +91,14 @@ class HomeController extends Controller
         if($article->status != 1){
             return abort(404);
         }
+
+        $client_ip = getUserIpAddr();
+        $check = ArticleStatistic::where([['article_id', $article->id], ['viewer_ip', $client_ip]])->first();
+        dd($client_ip);
+        $art_stat = new ArticleStatistic();
+        $art_stat->article_id = $article->id;
+        $art_stat->viewer_ip = $client_ip;
+        $art_stat->save();
 
         $cat_stat = $this->catStat();
         $art_stat = $this->artStat();
