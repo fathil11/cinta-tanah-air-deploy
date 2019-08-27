@@ -106,7 +106,7 @@ class AdminController extends Controller
 
     public function showKelolaArtikel()
     {
-        $articles = Article::where('status', '1');
+        $articles = Article::where('status', '1')->get();
 
         return view('admin.kelolaArtikel', ['articles' => $articles]);
     }
