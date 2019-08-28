@@ -15,6 +15,7 @@ use Auth;
 use App\User;
 use App\Article;
 use App\ArticleCategory;
+use App\ArticleStatistic;
 
 class AuthorController extends Controller
 {
