@@ -21,9 +21,46 @@ class AdminController extends Controller
 
     public function showWelcome()
     {
-        return view('admin.welcome');
+        $stat = $this->countStat();
+
+        return view('admin.welcome', ['stat' => $stat]);
     }
 
+    public function countStat()
+    {
+        $top_3_articles = Article::where('status', 1)->whereDate('created_at', date("Y-m-d"))->take(3)->get();
+
+        $article_count = count(Article::all());
+
+        $article_per_day_count = count(Article::whereDate('created_at', date("Y-m-d"))->get());
+
+        $article_postponed_count = count(Article::where('status', 3)->get());
+
+        $article_postponed_per_day_count = count(Article::where('status', 3)->whereDate('created_at', date("Y-m-d"))->get());
+
+        $category_set = ['budaya', 'pemberdayaan', 'pendidikan', 'sosial', 'hukum'];
+        foreach ($category_set as $cat_srch) {
+            $cat_article_count[$cat_srch] = count(ArticleCategory::where('category', $cat_srch)->get());
+        }
+
+        $view_per_day_count = count(ArticleStatistic::select('viewer_ip')->whereDate('created_at', date("Y-m-d"))->distinct()->get());
+
+        $comment_count = '-';
+
+        $comment_per_day_count = '-';
+
+        $stat['top_3_articles'] = $top_3_articles;
+        $stat['article_count'] = $article_count;
+        $stat['article_per_day_count'] = $article_per_day_count;
+        $stat['article_postponed_count'] = $article_postponed_count;
+        $stat['article_postponed_per_day_count'] = $article_postponed_per_day_count;
+        $stat['cat_article_count'] = $cat_article_count;
+        $stat['view_per_day_count'] = $view_per_day_count;
+        $stat['comment_count'] = $comment_count;
+        $stat['comment_per_day_count'] = $comment_per_day_count;
+
+        return $stat;
+    }
     public function catStat()
     {
         $category_set = ['budaya', 'pemberdayaan', 'pendidikan', 'sosial', 'hukum'];
@@ -43,26 +80,27 @@ class AdminController extends Controller
 
     public function showStatistic()
     {
-        $article_count = count(Article::all());
-        $article_per_day_count = count(Article::whereDate('created_at', date("Y-m-d"))->get());
-        $view_per_day_count = count(ArticleStatistic::select('viewer_ip')->whereDate('created_at', date("Y-m-d"))->distinct()->get());
-        $article_postponed_count = count(Article::where('status', 3)->get());
-        $article_postponed_per_day_count = count(Article::where('status', 3)->whereDate('created_at', date("Y-m-d"))->get());
-        $comment = '-';
+        // $article_count = count(Article::all());
+        // $article_per_day_count = count(Article::whereDate('created_at', date("Y-m-d"))->get());
+        // $view_per_day_count = count(ArticleStatistic::select('viewer_ip')->whereDate('created_at', date("Y-m-d"))->distinct()->get());
+        // $article_postponed_count = count(Article::where('status', 3)->get());
+        // $article_postponed_per_day_count = count(Article::where('status', 3)->whereDate('created_at', date("Y-m-d"))->get());
+        // $comment = '-';
 
-        $stat['article_count'] = $article_count;
-        $stat['article_per_day_count'] = $article_per_day_count;
-        $stat['view_per_day_count'] = $view_per_day_count;
-        $stat['article_postponed_count'] = $article_postponed_count;
-        $stat['article_postponed_per_day_count'] = $article_postponed_per_day_count;
-        $stat['comment'] = $comment;
-
+        // $stat['article_count'] = $article_count;
+        // $stat['article_per_day_count'] = $article_per_day_count;
+        // $stat['view_per_day_count'] = $view_per_day_count;
+        // $stat['article_postponed_count'] = $article_postponed_count;
+        // $stat['article_postponed_per_day_count'] = $article_postponed_per_day_count;
+        // $stat['comment'] = $comment;
+        $stat = $this->countStat();
         return view('admin.statistik', ['stat' => $stat]);
     }
 
     public function showBuatArtikel()
     {
-        return view('admin.buatArtikel');
+        $stat = $this->countStat();
+        return view('admin.buatArtikel', ['stat' => $stat]);
     }
 
     public function buatArtikel(Request $request)
@@ -123,12 +161,15 @@ class AdminController extends Controller
     {
         $articles = Article::where('status', '1')->get();
 
-        return view('admin.kelolaArtikel', ['articles' => $articles]);
+        $stat = $this->countStat();
+        return view('admin.kelolaArtikel', ['articles' => $articles, 'stat' => $stat]);
     }
 
     public function showDraftArtikel()
     {
         $articles = Article::where('status', '2')->orWhere('status', '3')->get();
+        $stat = $this->countStat();
+
         return view('admin.draftArtikel', ['articles' => $articles]);
     }
 
@@ -150,7 +191,9 @@ class AdminController extends Controller
         if($article->status == 1){
             return redirect(url('admin/kelola-artikel'))->with('error', 'Artikel sudah diterbitkan, tidak bisa di edit.');
         }
-        return view('admin.editArtikel', ['article' => $article]);
+
+        $stat = $this->countStat();
+        return view('admin.editArtikel', ['article' => $article, 'stat' => $stat]);
     }
     // Edit Artikel
     public function editArtikel(Request $request, $id)
@@ -223,7 +266,8 @@ class AdminController extends Controller
     // Buat User
     public function showBuatUser()
     {
-        return view('admin.buatUser');
+        $stat = $this->countStat();
+        return view('admin.buatUser', ['stat' => $stat]);
     }
 
     public function buatUser(Request $request)
@@ -280,13 +324,17 @@ class AdminController extends Controller
     public function showKelolaUser()
     {
         $users = User::all();
-        return view('admin.kelolaUser', ['users' => $users]);
+        $stat = $this->countStat();
+
+        return view('admin.kelolaUser', ['users' => $users, 'stat' => $stat]);
     }
 
     public function showEditUser($id)
     {
         $user = User::find($id);
-        return view('admin.editUser', ['user' => $user]);
+        $stat = $this->countStat();
+
+        return view('admin.editUser', ['user' => $user, 'stat' => $stat]);
     }
 
     public function editUser(Request $request, $id)
@@ -365,6 +413,8 @@ class AdminController extends Controller
     public function showProfil()
     {
         $user = User::findOrFail(Auth::user()->id);
+        $stat = $this->countStat();
+
         return view('admin.profil', ['user' => $user]);
     }
 
@@ -439,6 +489,8 @@ class AdminController extends Controller
         $cat_stat = $this->catStat();
         $art_stat = $this->artStat();
 
-        return view('admin.tinjauArtikel', ['article' => $article, 'cat_stat' => $cat_stat, 'art_stat' => $art_stat]);
+        $stat = $this->countStat();
+
+        return view('admin.tinjauArtikel', ['article' => $article, 'stat' => $stat]);
     }
 }
