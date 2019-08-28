@@ -23,7 +23,7 @@ Berita {{ $category }}
 
 @section('section')
 <!--================Blog Area =================-->
-<section class="blog_area section_padding">
+<section class="blog_area pt-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mb-5 mb-lg-0">
