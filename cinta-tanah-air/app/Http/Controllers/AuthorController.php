@@ -20,6 +20,42 @@ class AuthorController extends Controller
 {
     use UploadTrait;
 
+    public function countStat()
+    {
+        $top_3_articles = Article::where('status', 1)->whereDate('created_at', date("Y-m-d"))->take(3)->get();
+
+        $article_count = count(Article::all());
+
+        $article_per_day_count = count(Article::whereDate('created_at', date("Y-m-d"))->get());
+
+        $article_postponed_count = count(Article::where('status', 3)->get());
+
+        $article_postponed_per_day_count = count(Article::where('status', 3)->whereDate('created_at', date("Y-m-d"))->get());
+
+        $category_set = ['budaya', 'pemberdayaan', 'pendidikan', 'sosial', 'hukum'];
+        foreach ($category_set as $cat_srch) {
+            $cat_article_count[$cat_srch] = count(ArticleCategory::where('category', $cat_srch)->get());
+        }
+
+        $view_per_day_count = count(ArticleStatistic::select('viewer_ip')->whereDate('created_at', date("Y-m-d"))->distinct()->get());
+
+        $comment_count = '-';
+
+        $comment_per_day_count = '-';
+
+        $stat['top_3_articles'] = $top_3_articles;
+        $stat['article_count'] = $article_count;
+        $stat['article_per_day_count'] = $article_per_day_count;
+        $stat['article_postponed_count'] = $article_postponed_count;
+        $stat['article_postponed_per_day_count'] = $article_postponed_per_day_count;
+        $stat['cat_article_count'] = $cat_article_count;
+        $stat['view_per_day_count'] = $view_per_day_count;
+        $stat['comment_count'] = $comment_count;
+        $stat['comment_per_day_count'] = $comment_per_day_count;
+
+        return $stat;
+    }
+
     public function showWelcome()
     {
         return view('author.welcome');
