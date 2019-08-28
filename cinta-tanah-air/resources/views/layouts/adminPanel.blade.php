@@ -431,7 +431,7 @@
                 // Methods
                 function init($chart) {
                     var stat = {!! json_encode($spec_stat) !!};
-                    console.log(stat['h-1_art']);
+
                     var articleChart = new Chart($chart, {
                         type: 'line',
                         options: {
@@ -471,7 +471,7 @@
                             labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Hari ini'],
                             datasets: [{
                                 label: 'Performance',
-                                data: [3, 1, 6, 5, 2, 7, 8]
+                                data: [stat['h-6_art'], stat['h-5_art'], stat['h-4_art'], stat['h-3_art'], stat['h-2_art'], stat['h-1_art'], stat['today_art']]
                             }]
                         }
                     });
