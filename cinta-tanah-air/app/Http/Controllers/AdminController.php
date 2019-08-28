@@ -170,7 +170,7 @@ class AdminController extends Controller
         $articles = Article::where('status', '2')->orWhere('status', '3')->get();
         $stat = $this->countStat();
 
-        return view('admin.draftArtikel', ['articles' => $articles]);
+        return view('admin.draftArtikel', ['articles' => $articles, 'stat' => $stat]);
     }
 
     // Terbitkan Artikel
