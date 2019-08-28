@@ -21,7 +21,7 @@ Profil Kami
 @endsection
 
 @section('section')
-<section class="blog_area single-post-area section_padding">
+<section class="blog_area single-post-area pt-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 posts-list">
