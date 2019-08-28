@@ -398,6 +398,77 @@
                     "buttons": "paragraph,,,,,,,|,fontsize,,brush,|,indent,,align,,ul,ol,|,image,video,table,link,|,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall,print"
                 });
             }
+
+            var ArticleStatistic = (function() {
+
+            // Variables
+
+            var $chart = $('#articles-chart');
+
+
+            // Methods
+
+            function init($chart) {
+
+                var articleChart = new Chart($chart, {
+                    type: 'line',
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                gridLines: {
+                                    color: Charts.colors.gray[100],
+                                    zeroLineColor: Charts.colors.theme['secondary']
+                                },
+                                ticks: {
+                                    callback: function(value) {
+                                        if (!(value % 2)) {
+                                            return value;
+                                        }
+                                    }
+                                }
+                            }]
+                        },
+                        tooltips: {
+                            callbacks: {
+                                label: function(item, data) {
+                                    var label = data.datasets[item.datasetIndex].label || '';
+                                    var yLabel = item.yLabel;
+                                    var content = '';
+
+                                    if (data.datasets.length > 1) {
+                                        content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                    }
+
+                                    content += '<span class="popover-body-value">' + yLabel + ' Artikel</span>';
+                                    return content;
+                                }
+                            }
+                        }
+                    },
+                    data: {
+                        labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
+                        datasets: [{
+                            label: 'Performance',
+                            data: [2, 1, 6, 5, 2, 7, 8]
+                        }]
+                    }
+                });
+
+                // Save to jQuery object
+
+                $chart.data('chart', articleChart);
+
+            };
+
+
+            // Events
+
+            if ($chart.length) {
+                init($chart);
+            }
+
+
+        })();
         });
     </script>
 </body>
