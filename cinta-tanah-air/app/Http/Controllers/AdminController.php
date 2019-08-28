@@ -148,7 +148,7 @@ class AdminController extends Controller
     // Terbitkan Artikel
     public function terbitArtikel($id)
     {
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
         $article->status = 1;
         if ($article->save()) {
             return redirect(url('admin/kelola-artikel'))->with('sucess', 'Artikel berhasil diterbitkan');
@@ -159,7 +159,7 @@ class AdminController extends Controller
     // Show Edit Artikel
     public function showEditArtikel($id)
     {
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
         if($article->status == 1){
             return redirect(url('admin/kelola-artikel'))->with('error', 'Artikel sudah diterbitkan, tidak bisa di edit.');
         }
@@ -170,7 +170,7 @@ class AdminController extends Controller
     // Edit Artikel
     public function editArtikel(Request $request, $id)
     {
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
 
         $request->validate([
             'title' => 'required|min:5|max:50',
@@ -179,10 +179,12 @@ class AdminController extends Controller
             'cat' => 'nullable',
             'editor' => 'bail|required|min:30|max:10000'
         ]);
+
         $article->title = $request->title;
         $article->slug = str_slug($request->title, '-');
         $article->type = $request->article_type;
         $article->article = $request->editor;
+        $article->status = 3;
 
         if ($request->has('banner_path')) {
             // Get image file
@@ -303,7 +305,7 @@ class AdminController extends Controller
 
     public function showEditUser($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         $stat = $this->countStat();
 
         return view('admin.editUser', ['user' => $user, 'stat' => $stat]);
@@ -311,7 +313,7 @@ class AdminController extends Controller
 
     public function editUser(Request $request, $id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
 
         if ($request->email == $user->email) {
             $request->validate([
@@ -376,7 +378,7 @@ class AdminController extends Controller
 
     public function deleteUser($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         if ($user->delete()) {
             return redirect(url('admin/kelola-user'));
         }
