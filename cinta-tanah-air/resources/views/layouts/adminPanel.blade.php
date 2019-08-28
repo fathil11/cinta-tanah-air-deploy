@@ -422,9 +422,12 @@
                 });
             }
 
-            // Chart Stat Init
-            if(window.location.href == "https://www.cintatanahair.id/admin/statistik"){
 
+        });
+    </script>
+    @if (exist($cart_stat))
+    <script>
+        // Chart Stat Init
             var ArticleStatistic = (function () {
 
                 // Variables
@@ -490,12 +493,11 @@
                 if ($chart.length) {
                     init($chart);
                 }
-            }
 
 
             })();
-        });
     </script>
+    @endif
 </body>
 
 </html>
