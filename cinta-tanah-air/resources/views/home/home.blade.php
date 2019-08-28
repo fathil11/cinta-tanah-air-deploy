@@ -54,7 +54,7 @@
             <div class="col-lg-6 col-sm-6">
                 <div class="single_happy_client">
                     <img src="img/icon/cap.svg" alt="cap">
-                    <span class="counter">81</span>
+                    <span class="counter">{{ $stat['view_per_day_count'] }}</span>
                     <h4>Pengunjung <br>Hari Ini</h4>
                 </div>
             </div>
@@ -62,8 +62,8 @@
             <div class="col-lg-6 col-sm-6">
                 <div class="single_happy_client">
                     <img src="img/icon/cafe.svg" alt="cap">
-                    <span class="counter">12</span>
-                    <h4>Berita<br>Terbaru</h4>
+                    <span class="counter">{{ $stat['article_per_day_count'] }}</span>
+                    <h4>Berita<br>Hari Ini</h4>
                 </div>
             </div>
         </div>
@@ -81,7 +81,7 @@
                 <div class="section_tittle text-center">
                     <h2>Berita Terbaru</h2>
                     @if ($stat['top_3_articles']->isEmpty())
-                    <h3>Maaf, belum ada berita.</h3>
+                    <h3>Maaf, belum ada berita hari ini.</h3>
                     @endif
                 </div>
             </div>

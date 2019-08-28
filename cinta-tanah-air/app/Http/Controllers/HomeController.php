@@ -62,7 +62,7 @@ class HomeController extends Controller
 
     public function showHome()
     {
-        // dd(public_path());
+
         $stat = $this->countStat();
 
         return view('home.home', ['stat' => $stat]);
