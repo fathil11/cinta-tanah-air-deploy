@@ -97,6 +97,7 @@ class AuthorController extends Controller
         if($article->author_id != Auth::user()->id){
             return redirect(url('author/kelola-artikel'))->with('error', 'Artikel bukan buatan anda, tidak bisa di edit.');
         }
+
         // Validasi Status Artikel
         if($article->status == 1){
             return redirect(url('author/kelola-artikel'))->with('error', 'Artikel sudah diterbitkan, tidak bisa di edit.');
@@ -234,5 +235,26 @@ class AuthorController extends Controller
             return redirect(url('author/profil'))->with('success', 'Berhasil di update.');
         }
 
+    }
+
+    public function deleteArticle($id)
+    {
+        $article = Article::findOrFail($id);
+
+        // Validasi Pembuat Artikel
+        if($article->author_id != Auth::user()->id){
+            return redirect(url('author/kelola-artikel'))->with('error', 'Artikel bukan buatan anda, tidak bisa di delete.');
+        }
+
+        // Validasi Status Artikel
+        if($article->status == 1){
+            return redirect(url('author/kelola-artikel'))->with('error', 'Artikel sudah diterbitkan, tidak bisa di delete.');
+        }elseif($article->status == 2){
+            return redirect(url('author/kelola-artikel'))->with('error', 'Artikel sedang ditinjau, tidak bisa di delete.');
+        }
+
+        $article->delete();
+
+        return redirect(url('author/kelola-artikel'))->with('success', 'Artikel berhasil di delete.')
     }
 }

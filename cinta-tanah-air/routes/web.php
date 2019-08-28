@@ -113,6 +113,9 @@ Route::group(['prefix' => 'author', 'middleware' => 'author'], function () {
     // Edit Artikel
     Route::post('edit-artikel/{id}', 'AuthorController@editArtikel');
 
+    // Edit Artikel
+    Route::get('delete-artikel/{id}', 'AuthorController@deleteArtikel');
+
     // Show Profil
     Route::get('profil', 'AuthorController@showProfil');
 

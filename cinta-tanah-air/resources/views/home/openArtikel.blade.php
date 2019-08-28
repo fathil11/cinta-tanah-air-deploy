@@ -135,9 +135,12 @@ Cinta Tanah Air
     </div> --}}
     <div class="comment-form">
         <h4>Tulis Komentar</h4>
-        <form class="form-contact comment_form" action="#" id="commentForm">
+        <form class="form-contact comment_form" action="{{ url('posting-komentar') . '/' . $article->slug }}"
+            id="commentForm" method="post">
+            @csrf
             <div class="row">
                 <div class="col-12">
+
                     <div class="form-group">
                         <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="3"
                             placeholder="Tulis komentar ..."></textarea>

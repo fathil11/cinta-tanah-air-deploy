@@ -60,6 +60,19 @@ class HomeController extends Controller
         return $stat;
     }
 
+    public function pushStat($article_id)
+    {
+        $client_ip = $this->getUserIpAddr();
+        $check = ArticleStatistic::where([['article_id', $article_id], ['viewer_ip', $client_ip]])->first();
+
+        if($check == null){
+            $art_stat = new ArticleStatistic();
+            $art_stat->article_id = $article_id;
+            $art_stat->viewer_ip = $client_ip;
+            $art_stat->save();
+        }
+    }
+
     public function showHome()
     {
 
@@ -111,15 +124,7 @@ class HomeController extends Controller
         }
 
         // Push Article Statistic
-        $client_ip = $this->getUserIpAddr();
-        $check = ArticleStatistic::where([['article_id', $article->id], ['viewer_ip', $client_ip]])->first();
-
-        if($check == null){
-            $art_stat = new ArticleStatistic();
-            $art_stat->article_id = $article->id;
-            $art_stat->viewer_ip = $client_ip;
-            $art_stat->save();
-        }
+        $this->pushStat($article->id);
 
         $stat = $this->countStat();
 
