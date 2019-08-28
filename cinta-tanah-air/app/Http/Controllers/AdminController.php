@@ -45,7 +45,7 @@ class AdminController extends Controller
     {
         $article = Article::whereDate('created_at', date("Y-m-d"))->get();
         $view = count(ArticleStatistic::select('viewer_ip')->whereDate('created_at', date("Y-m-d"))->distinct()->get());
-        dd($view);
+
         return view('admin.statistik');
     }
 
