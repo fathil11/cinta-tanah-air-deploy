@@ -65,13 +65,13 @@ class AdminController extends Controller
     public function showStatistic()
     {
         $stat = $this->countStat();
-        $spec_stat['today_art'] = count(Article::whereDate('created_at', Carbon::today()));
-        $spec_stat['h-1_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(1)));
-        $spec_stat['h-2_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(2)));
-        $spec_stat['h-3_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(3)));
-        $spec_stat['h-4_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(4)));
-        $spec_stat['h-5_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(5)));
-        $spec_stat['h-6_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(6)));
+        $spec_stat['today_art'] = count(Article::whereDate('created_at', Carbon::today())->get());
+        $spec_stat['h-1_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(1))->get());
+        $spec_stat['h-2_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(2))->get());
+        $spec_stat['h-3_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(3))->get());
+        $spec_stat['h-4_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(4))->get());
+        $spec_stat['h-5_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(5))->get());
+        $spec_stat['h-6_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(6))->get());
         dd($spec_stat);
         return view('admin.statistik', ['stat' => $stat]);
     }
