@@ -43,10 +43,21 @@ class AdminController extends Controller
 
     public function showStatistic()
     {
-        $article = Article::whereDate('created_at', date("Y-m-d"))->get();
-        $view = count(ArticleStatistic::select('viewer_ip')->whereDate('created_at', date("Y-m-d"))->distinct()->get());
+        $article_count = Article::all()->get();
+        $article_per_day_count = Article::whereDate('created_at', date("Y-m-d"))->get();
+        $view_per_day_count = count(ArticleStatistic::select('viewer_ip')->whereDate('created_at', date("Y-m-d"))->distinct()->get());
+        $article_postponed_count = count(Article::where('status', 3)->get());
+        $article_postponed_per_day_count = count(Article::where('status', 3)->whereDate('created_at', date("Y-m-d"))->get());
+        $comment = '-';
 
-        return view('admin.statistik');
+        $stat['article_count'] = $article_count;
+        $stat['article_per_day_count'] = $article_per_day_count;
+        $stat['view_per_day_count'] = $view_per_day_count;
+        $stat['article_postponed_count'] = $article_postponed_count;
+        $stat['article_postponed_per_day_count'] = $article_postponed_per_day_count;
+        $stat['comment'] = $comment;
+
+        return view('admin.statistik', ['stat' => $stat]);
     }
 
     public function showBuatArtikel()
