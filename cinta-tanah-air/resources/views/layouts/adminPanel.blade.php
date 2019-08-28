@@ -290,39 +290,56 @@
     {{-- JS Init --}}
     <script>
         // Data Table Init
-        $(document).ready( function () {
+        $(document).ready(function () {
 
             $('#article_table').DataTable({
                 "info": false,
-                "lengthMenu": [ 5, 10, 15, 20, 25 ],
+                "lengthMenu": [5, 10, 15, 20, 25],
                 "pageLength": 5,
-                "columnDefs": [{"searchable": false, "targets": 0}]
+                "columnDefs": [{
+                    "searchable": false,
+                    "targets": 0
+                }]
             });
 
             $('#draft_article_table').DataTable({
                 "info": false,
-                "lengthMenu": [ 5, 10, 15, 20, 25 ],
+                "lengthMenu": [5, 10, 15, 20, 25],
                 "pageLength": 5,
-                "columnDefs": [{ "orderable": false, "targets": 6 },
-                            {"searchable": false, "targets": 6}]
+                "columnDefs": [{
+                        "orderable": false,
+                        "targets": 6
+                    },
+                    {
+                        "searchable": false,
+                        "targets": 6
+                    }
+                ]
             });
 
             $('#users_table').DataTable({
                 "info": false,
-                "lengthMenu": [ 5, 10, 15, 20 ],
+                "lengthMenu": [5, 10, 15, 20],
                 "pageLength": 5,
-                "columnDefs": [{ "orderable": false, "targets": 4 },
-                            {"searchable": false, "targets": 4}]
+                "columnDefs": [{
+                        "orderable": false,
+                        "targets": 4
+                    },
+                    {
+                        "searchable": false,
+                        "targets": 4
+                    }
+                ]
             });
 
-            $('input[type="file"]').change(function(e){
+            $('input[type="file"]').change(function (e) {
                 var fileName = e.target.files[0].name;
                 $('.custom-file-label').html(fileName);
             });
 
             $(".crop-profile-js").change(function () {
                 readURL(this)
-                $('#previewimage').on('load', function(){
+                $('#previewimage').on('load', function () {
                     crop1()
                 })
 
@@ -330,7 +347,7 @@
 
             $(".crop-artikel-js").change(function () {
                 readURL(this)
-                $('#previewimage').on('load', function(){
+                $('#previewimage').on('load', function () {
                     crop2()
                 })
 
@@ -350,14 +367,17 @@
                 }
             }
 
-            function crop1(){
+            function crop1() {
                 var image = new Image();
                 image.src = $("#previewimage").attr("src");
                 var real_width = image.naturalWidth;
                 var real_height = image.naturalHeight;
 
                 $('#previewimage').imgAreaSelect({
-                    x1: 0, y1: 0, x2: 500, y2: 500,
+                    x1: 0,
+                    y1: 0,
+                    x2: 500,
+                    y2: 500,
                     aspectRatio: '1:1',
                     handles: true,
                     fadeSpeed: 700,
@@ -367,14 +387,17 @@
                 });
             }
 
-            function crop2(){
+            function crop2() {
                 var image = new Image();
                 image.src = $("#previewimage").attr("src");
                 var real_width = image.naturalWidth;
                 var real_height = image.naturalHeight;
 
                 $('#previewimage').imgAreaSelect({
-                    x1: 0, y1: 0, x2: 500, y2: 250,
+                    x1: 0,
+                    y1: 0,
+                    x2: 500,
+                    y2: 250,
                     aspectRatio: '2:1',
                     handles: true,
                     fadeSpeed: 700,
@@ -392,83 +415,82 @@
             }
 
             // WYSIWYG Init
-            if($('#editor').length != 0){
+            if ($('#editor').length != 0) {
                 var editor = new Jodit("#editor", {
                     "spellcheck": false,
                     "buttons": "paragraph,,,,,,,|,fontsize,,brush,|,indent,,align,,ul,ol,|,image,video,table,link,|,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall,print"
                 });
             }
 
-            var ArticleStatistic = (function() {
+            // Chart Stat Init
+            var ArticleStatistic = (function () {
 
-            // Variables
+                // Variables
+                var $chart = $('#articles-chart');
 
-            var $chart = $('#articles-chart');
-
-
-            // Methods
-
-            function init($chart) {
-
-                var articleChart = new Chart($chart, {
-                    type: 'line',
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                gridLines: {
-                                    color: Charts.colors.gray[100],
-                                    zeroLineColor: Charts.colors.theme['secondary']
-                                },
-                                ticks: {
-                                    callback: function(value) {
-                                        if (!(value % 2)) {
-                                            return value;
+                // Methods
+                function init($chart) {
+                    var stat = {!! json_encode($spec_stat) !!};
+                    console.log(stat);
+                    var articleChart = new Chart($chart, {
+                        type: 'line',
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    gridLines: {
+                                        color: Charts.colors.gray[100],
+                                        zeroLineColor: Charts.colors.theme['secondary']
+                                    },
+                                    ticks: {
+                                        callback: function (value) {
+                                            if (!(value % 2)) {
+                                                return value;
+                                            }
                                         }
                                     }
-                                }
-                            }]
-                        },
-                        tooltips: {
-                            callbacks: {
-                                label: function(item, data) {
-                                    var label = data.datasets[item.datasetIndex].label || '';
-                                    var yLabel = item.yLabel;
-                                    var content = '';
+                                }]
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    label: function (item, data) {
+                                        var label = data.datasets[item.datasetIndex].label || '';
+                                        var yLabel = item.yLabel;
+                                        var content = '';
 
-                                    if (data.datasets.length > 1) {
-                                        content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        if (data.datasets.length > 1) {
+                                            content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                                        }
+
+                                        content += '<span class="popover-body-value">' + yLabel + ' Artikel</span>';
+                                        return content;
                                     }
-
-                                    content += '<span class="popover-body-value">' + yLabel + ' Artikel</span>';
-                                    return content;
                                 }
                             }
+                        },
+                        data: {
+                            labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Hari ini'],
+                            datasets: [{
+                                label: 'Performance',
+                                data: [3, 1, 6, 5, 2, 7, 8]
+                            }]
                         }
-                    },
-                    data: {
-                        labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
-                        datasets: [{
-                            label: 'Performance',
-                            data: [2, 1, 6, 5, 2, 7, 8]
-                        }]
-                    }
-                });
+                    });
 
-                // Save to jQuery object
+                    // Save to jQuery object
 
-                $chart.data('chart', articleChart);
+                    $chart.data('chart', articleChart);
 
-            };
+                };
 
 
-            // Events
+                // Events
 
-            if ($chart.length) {
-                init($chart);
-            }
+                if ($chart.length) {
+                    init($chart);
+                }
 
 
-        })();
+            })();
         });
     </script>
 </body>

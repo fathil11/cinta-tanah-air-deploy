@@ -73,7 +73,7 @@ class AdminController extends Controller
         $spec_stat['h-5_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(5))->get());
         $spec_stat['h-6_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(6))->get());
 
-        return view('admin.statistik', ['stat' => $stat]);
+        return view('admin.statistik', ['stat' => $stat, 'spec_stat' => $spec_stat]);
     }
 
     public function showBuatArtikel()
