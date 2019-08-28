@@ -24,23 +24,48 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function countStat()
+    {
+        $top_3_articles = Article::where('status', 1)->whereDate('created_at', date("Y-m-d"))->take(3)->get();
+
+        $article_count = count(Article::all());
+
+        $article_per_day_count = count(Article::whereDate('created_at', date("Y-m-d"))->get());
+
+        $article_postponed_count = count(Article::where('status', 3)->get());
+
+        $article_postponed_per_day_count = count(Article::where('status', 3)->whereDate('created_at', date("Y-m-d"))->get());
+
+        $category_set = ['budaya', 'pemberdayaan', 'pendidikan', 'sosial', 'hukum'];
+        foreach ($category_set as $cat_srch) {
+            $cat_article_count[$cat_srch] = count(ArticleCategory::where('category', $cat_srch)->get());
+        }
+
+        $view_per_day_count = count(ArticleStatistic::select('viewer_ip')->whereDate('created_at', date("Y-m-d"))->distinct()->get());
+
+        $comment_count = '-';
+
+        $comment_per_day_count = '-';
+
+        $stat['top_3_articles'] = $top_3_articles;
+        $stat['article_count'] = $article_count;
+        $stat['article_per_day_count'] = $article_per_day_count;
+        $stat['article_postponed_count'] = $article_postponed_count;
+        $stat['article_postponed_per_day_count'] = $article_postponed_per_day_count;
+        $stat['cat_article_count'] = $cat_article_count;
+        $stat['view_per_day_count'] = $view_per_day_count;
+        $stat['comment_count'] = $comment_count;
+        $stat['comment_per_day_count'] = $comment_per_day_count;
+
+        return $stat;
+    }
+
     public function showHome()
     {
         // dd(public_path());
-        $art_stat = $this->artStat();
+        $stat = $this->countStat();
 
-        return view('home.home', ['art_stat' => $art_stat]);
-    }
-
-    public function catStat()
-    {
-        $category_set = ['budaya', 'pemberdayaan', 'pendidikan', 'sosial', 'hukum'];
-
-        foreach ($category_set as $cat_srch) {
-            $cat_stat[$cat_srch] = count(ArticleCategory::where('category', $cat_srch)->get());
-        }
-
-        return $cat_stat;
+        return view('home.home', ['stat' => $stat]);
     }
 
     public function getUserIpAddr(){
@@ -56,19 +81,12 @@ class HomeController extends Controller
         return $ip;
     }
 
-    public function artStat()
-    {
-        $articles = Article::where('status', 1)->whereDate('created_at', date("Y-m-d"))->take(3)->get();
-        return $articles;
-    }
-
     public function showBerita()
     {
         $articles = Article::where([['type', 'berita'], ['status', 1]])->paginate(5);
-        $cat_stat = $this->catStat();
-        $art_stat = $this->artStat();
+        $stat = $this->countStat();
 
-        return view('home.berita', ['category' => 'Terkini', 'cat_stat' => $cat_stat, 'art_stat' => $art_stat, 'articles' => $articles]);
+        return view('home.berita', ['category' => 'Terkini', 'articles' => $articles,  'stat' => $stat]);
     }
 
     public function showBeritaCategory($category)
@@ -77,10 +95,10 @@ class HomeController extends Controller
         $articles = Article::where([['type', 'berita'], ['status', 1]])->whereHas('category', function (Builder $query) use ($category) {
             $query->where('category', $category);
         })->paginate(5);
-        $cat_stat = $this->catStat();
 
-        $art_stat = $this->artStat();
-        return view('home.berita', ['category' => $category, 'cat_stat' => $cat_stat, 'art_stat' => $art_stat, 'articles' => $articles]);
+        $stat = $this->countStat();
+
+        return view('home.berita', ['category' => $category, 'articles' => $articles, 'stat' => $stat]);
     }
 
     public function openArticle($slug)
@@ -103,26 +121,25 @@ class HomeController extends Controller
             $art_stat->save();
         }
 
-        $cat_stat = $this->catStat();
-        $art_stat = $this->artStat();
-        return view('home.openArtikel', ['article' => $article, 'cat_stat' => $cat_stat, 'art_stat' => $art_stat]);
+        $stat = $this->countStat();
+
+        return view('home.openArtikel', ['article' => $article, 'stat' => $stat]);
     }
 
     public function showBertutur()
     {
         $articles = Article::where([['type', 'bertutur'], ['status', 1]])->paginate(5);
-        // dd($articles);
-        $cat_stat = $this->catStat();
-        $art_stat = $this->artStat();
 
-        return view('home.bertutur', ['category' => 'Terkini', 'cat_stat' => $cat_stat, 'art_stat' => $art_stat, 'articles' => $articles]);
+        $stat = $this->countStat();
+
+        return view('home.bertutur', ['category' => 'Terkini',  'articles' => $articles, 'stat' => $stat]);
     }
 
     public function showProfil()
     {
-        $cat_stat = $this->catStat();
-        $art_stat = $this->artStat();
-        return view('home.profil', ['cat_stat' => $cat_stat, 'art_stat' => $art_stat]);
+        $stat = $this->countStat();
+
+        return view('home.profil', ['stat' => $stat]);
     }
 
     /// Logout Function
