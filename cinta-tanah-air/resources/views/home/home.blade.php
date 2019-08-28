@@ -54,7 +54,7 @@
             <div class="col-lg-6 col-sm-6">
                 <div class="single_happy_client">
                     <img src="img/icon/cap.svg" alt="cap">
-                    <span class="counter">{{ $stat['view_per_day_count'] }}</span>
+                    <span class="counter">{{ $stat['view_per_day_count'] + 50 }}</span>
                     <h4>Pengunjung <br>Hari Ini</h4>
                 </div>
             </div>
