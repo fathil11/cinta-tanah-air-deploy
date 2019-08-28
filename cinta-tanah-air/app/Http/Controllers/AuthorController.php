@@ -255,6 +255,6 @@ class AuthorController extends Controller
 
         $article->delete();
 
-        return redirect(url('author/kelola-artikel'))->with('success', 'Artikel berhasil di delete.')
+        return redirect(url('author/kelola-artikel'))->with('success', 'Artikel berhasil di delete.');
     }
 }
