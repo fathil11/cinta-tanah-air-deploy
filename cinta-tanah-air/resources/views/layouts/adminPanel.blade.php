@@ -150,7 +150,7 @@
                         <a class="nav-link @if(Request::is('admin/draft-artikel')) {{'active'}} @endif"
                             href="{{ url('admin/draft-artikel') }}">
                             <i class="ni ni-bullet-list-67 text-warning"></i> Draft Artikel
-                            <span class="badge badge-pill badge-warning">2</span>
+                            <span class="badge badge-pill badge-warning">{{ $stat['article_postponed_count'] }}</span>
                         </a>
                     </li>
                 </ul>
