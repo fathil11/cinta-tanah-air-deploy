@@ -94,10 +94,6 @@ class AuthorController extends Controller
     {
         $article = Article::findOrFail($id);
 
-        if($article->status != 2 && $article->status != 3){
-            return abort(404);
-        }
-
         $stat = $this->countStat();
 
         return view('author.lihatArtikel', ['article' => $article, 'stat' => $stat]);
