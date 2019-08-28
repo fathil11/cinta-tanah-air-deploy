@@ -425,7 +425,7 @@
 
         });
     </script>
-    @if (exist($cart_stat))
+    @if (isset($cart_stat))
     <script>
         // Chart Stat Init
             var ArticleStatistic = (function () {
