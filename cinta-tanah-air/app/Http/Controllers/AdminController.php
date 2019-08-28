@@ -61,39 +61,11 @@ class AdminController extends Controller
 
         return $stat;
     }
-    public function catStat()
-    {
-        $category_set = ['budaya', 'pemberdayaan', 'pendidikan', 'sosial', 'hukum'];
-
-        foreach ($category_set as $cat_srch) {
-            $cat_stat[$cat_srch] = count(ArticleCategory::where('category', $cat_srch)->get());
-        }
-
-        return $cat_stat;
-    }
-
-    public function artStat()
-    {
-        $articles = Article::where('status', 1)->whereDate('created_at', date("Y-m-d"))->take(3)->get();
-        return $articles;
-    }
 
     public function showStatistic()
     {
-        // $article_count = count(Article::all());
-        // $article_per_day_count = count(Article::whereDate('created_at', date("Y-m-d"))->get());
-        // $view_per_day_count = count(ArticleStatistic::select('viewer_ip')->whereDate('created_at', date("Y-m-d"))->distinct()->get());
-        // $article_postponed_count = count(Article::where('status', 3)->get());
-        // $article_postponed_per_day_count = count(Article::where('status', 3)->whereDate('created_at', date("Y-m-d"))->get());
-        // $comment = '-';
-
-        // $stat['article_count'] = $article_count;
-        // $stat['article_per_day_count'] = $article_per_day_count;
-        // $stat['view_per_day_count'] = $view_per_day_count;
-        // $stat['article_postponed_count'] = $article_postponed_count;
-        // $stat['article_postponed_per_day_count'] = $article_postponed_per_day_count;
-        // $stat['comment'] = $comment;
         $stat = $this->countStat();
+
         return view('admin.statistik', ['stat' => $stat]);
     }
 
@@ -485,9 +457,6 @@ class AdminController extends Controller
 
         $article->status = 2;
         $article->save();
-
-        $cat_stat = $this->catStat();
-        $art_stat = $this->artStat();
 
         $stat = $this->countStat();
 

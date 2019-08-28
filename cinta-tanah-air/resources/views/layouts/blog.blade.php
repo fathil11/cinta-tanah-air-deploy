@@ -32,31 +32,31 @@
                 <li>
                     <a href="{{ url('berita/budaya') }}" class="d-flex">
                         <p>Budaya</p>
-                        <p>({{ $cat_stat['budaya'] }})</p>
+                        <p>({{ $stat['cat_article_count']['budaya'] }})</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ url('berita/pemberdayaan') }}" class="d-flex">
                         <p>Pemberdayaan</p>
-                        <p>({{ $cat_stat['pemberdayaan'] }})</p>
+                        <p>({{ $stat['cat_article_count']['pemberdayaan'] }})</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ url('berita/pendidikan') }}" class="d-flex">
                         <p>Pendidikan</p>
-                        <p>({{ $cat_stat['pendidikan'] }})</p>
+                        <p>({{ $stat['cat_article_count']['pendidikan'] }})</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ url('berita/sosial') }}" class="d-flex">
                         <p>Sosial</p>
-                        <p>({{ $cat_stat['sosial'] }})</p>
+                        <p>({{ $stat['cat_article_count']['sosial'] }})</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ url('berita/hukum') }}" class="d-flex">
                         <p>Hukum</p>
-                        <p>({{ $cat_stat['hukum'] }})</p>
+                        <p>({{ $stat['cat_article_count']['hukum'] }})</p>
                     </a>
                 </li>
             </ul>
@@ -65,7 +65,7 @@
         <aside class="single_sidebar_widget popular_post_widget">
             <h3 class="widget_title">Berita Terbaru</h3>
             <div class="row">
-                @foreach ($art_stat as $art)
+                @foreach ($stat['top_3_articles'] as $art)
                 <div class="media post_item">
                     <div class="col-md-5">
                         <img class="img-fluid"
