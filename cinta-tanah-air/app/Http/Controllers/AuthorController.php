@@ -237,7 +237,7 @@ class AuthorController extends Controller
 
     }
 
-    public function deleteArticle($id)
+    public function deleteArtikel($id)
     {
         $article = Article::findOrFail($id);
 
