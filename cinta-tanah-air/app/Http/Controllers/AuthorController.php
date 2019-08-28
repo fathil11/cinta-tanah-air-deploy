@@ -90,6 +90,19 @@ class AuthorController extends Controller
         return view('author.kelolaArtikel', ['articles' => $articles]);
     }
 
+    public function lihatArtikel($id)
+    {
+        $article = Article::findOrFail($id);
+
+        if($article->status != 2 && $article->status != 3){
+            return abort(404);
+        }
+
+        $stat = $this->countStat();
+
+        return view('author.lihatArtikel', ['article' => $article, 'stat' => $stat]);
+    }
+
     public function showEditArtikel($id)
     {
         $article = Article::findOrFail($id);

@@ -60,7 +60,7 @@
 
                             <th scope="row">
                                 <a target="blank"
-                                    href="{{ 'https://www.cintatanahair.id/lihat-artikel/' . $article->slug }}">{{ $article->title }}</a>
+                                    href="{{ url('author/lihat-artikel') . '/' . $article->id }}">{{ $article->title }}</a>
                             </th>
 
                             <td>
