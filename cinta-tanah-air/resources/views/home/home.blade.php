@@ -80,7 +80,7 @@
             <div class="col-xl-5">
                 <div class="section_tittle text-center">
                     <h2>Berita Terbaru</h2>
-                    @if ($art_stat->isEmpty())
+                    @if ($stat['top_3_articles']->isEmpty())
                     <h3>Maaf, belum ada berita.</h3>
                     @endif
                 </div>
@@ -89,7 +89,7 @@
         <div class="row">
             <div class="col-sm-6 col-lg-4 col-xl-4 d-none d-sm-block d-lg-none">
 
-                @foreach ($art_stat as $article)
+                @foreach ($stat['top_3_articles'] as $article)
                 <div class="single-home-blog">
                     <div class="card">
                         <img src="{{ url('cinta-tanah-air/public/img/blog') . '/' . $article->banner_path }}"
