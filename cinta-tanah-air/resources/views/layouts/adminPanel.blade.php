@@ -431,7 +431,7 @@
                 // Methods
                 function init($chart) {
                     var stat = {!! json_encode($spec_stat) !!};
-                    console.log(stat);
+                    console.log(stat['h-1_art']);
                     var articleChart = new Chart($chart, {
                         type: 'line',
                         options: {
