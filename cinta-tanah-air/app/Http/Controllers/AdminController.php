@@ -12,6 +12,7 @@ use Auth;
 use App\User;
 use App\Article;
 use App\ArticleCategory;
+use App\ArticleStatistic;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class AdminController extends Controller
@@ -42,6 +43,9 @@ class AdminController extends Controller
 
     public function showStatistic()
     {
+        $article = Article::whereDate('created_at', date("Y-m-d"))->get();
+        $view = count(ArticleStatistic::groupBy('viewer_ip')->get());
+        dd($view);
         return view('admin.statistik');
     }
 
