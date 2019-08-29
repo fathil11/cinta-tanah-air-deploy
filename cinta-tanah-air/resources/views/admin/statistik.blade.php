@@ -152,7 +152,7 @@
                         @foreach ($articles as $counter=>$article)
                         <tr>
                             <th scope="row">
-                                {{ $key+1 }}
+                                {{ $counter+1 }}
                             </th>
                             <th scope="row">
                                 <a target="blank"
