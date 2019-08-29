@@ -13,12 +13,13 @@
 <div class="col-lg-4">
     <div class="blog_right_sidebar">
         <aside class="single_sidebar_widget search_widget">
-            <form action="#">
+            <form action="{{ url('cari-berita') }}" method="POST">
+                @csrf
                 <div class="form-group">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Cari berita ...">
+                        <input type="text" class="form-control" placeholder="Cari artikel ..." name="search">
                         <div class="input-group-append">
-                            <button class="btn" type="button"><i class="ti-search"></i></button>
+                            <button class="btn" type="submit"><i class="ti-search"></i></button>
                         </div>
                     </div>
                 </div>

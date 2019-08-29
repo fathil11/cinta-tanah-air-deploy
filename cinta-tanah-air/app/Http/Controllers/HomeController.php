@@ -140,6 +140,11 @@ class HomeController extends Controller
         return view('home.bertutur', ['category' => 'Terkini',  'articles' => $articles, 'stat' => $stat]);
     }
 
+    public function cariArtikel(Request $request)
+    {
+        $article = Article::where('title', 'like', $request->search)->get();
+        dd($article);
+    }
     public function showProfil()
     {
         $stat = $this->countStat();

@@ -30,6 +30,9 @@ Route::group(['prefix' => '/'], function () {
 
     // Show Profil
     Route::get('profil', 'HomeController@showProfil');
+
+    // Cari Berita
+    Route::post('cari-artikel', 'HomeController@cariArtikel');
 });
 
 /// Admin Route
