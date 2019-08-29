@@ -152,7 +152,7 @@
                         <tr>
                             <th scope="row">
                                 <a target="blank"
-                                    href="{{ url('author/lihat-artikel') . '/' . $article->id }}">{{ $article->title }}</a>
+                                    href="{{ url('lihat-artikel') . '/' . $article->slug }}">{{ $article->title }}</a>
                             </th>
                             <td>
                                 {{ $article->author->name }}
