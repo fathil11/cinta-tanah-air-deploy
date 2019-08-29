@@ -482,7 +482,6 @@
                     });
 
                     // Save to jQuery object
-
                     $chart.data('chart', articleChart);
 
                 };
