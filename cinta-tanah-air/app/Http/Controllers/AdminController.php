@@ -19,6 +19,24 @@ class AdminController extends Controller
 {
     use UploadTrait;
 
+    public function dayTranslator($day)
+    {
+        if($day == 'Sunday'){
+            return 'Minggu';
+        }elseif($day == 'Monday'){
+            return 'Senin';
+        }elseif($day == 'Tuesday'){
+            return 'Selasa';
+        }elseif($day == 'Wednesday'){
+            return 'Rabu';
+        }elseif($day == 'Thursday'){
+            return 'Kamis';
+        }elseif($day == 'Friday'){
+            return 'Jumat';
+        }elseif($day == 'Saturday'){
+            return 'Sabtu';
+        }
+    }
     public function showWelcome()
     {
         $stat = $this->countStat();
@@ -73,14 +91,16 @@ class AdminController extends Controller
         $spec_stat['h-5_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(5))->get());
         $spec_stat['h-6_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(6))->get());
         // Carbon::setLocale(LC_ALL, 'id_ID.UTF8', 'id_ID.UTF-8', 'id_ID.8859-1', 'id_ID', 'IND.UTF8', 'IND.UTF-8', 'IND.8859-1', 'IND', 'Indonesian.UTF8', 'Indonesian.UTF-8', 'Indonesian.8859-1', 'Indonesian', 'Indonesia', 'id', 'ID', 'en_US.UTF8', 'en_US.UTF-8', 'en_US.8859-1', 'en_US', 'American', 'ENG', 'English');
-        $spec_stat['today'] = Carbon::today()->format('l');
-        $spec_stat['h-1'] = Carbon::today()->subDays(1)->format('l');
-        $spec_stat['h-2'] = Carbon::today()->subDays(2)->format('l');
-        $spec_stat['h-3'] = Carbon::today()->subDays(3)->format('l');
-        $spec_stat['h-4'] = Carbon::today()->subDays(4)->format('l');
-        $spec_stat['h-5'] = Carbon::today()->subDays(5)->format('l');
-        $spec_stat['h-6'] = Carbon::today()->subDays(6)->format('l');
+        $spec_stat['today'] = $this->dayTranslator(Carbon::today()->format('l'));
+        $spec_stat['h-1'] = $this->dayTranslator(Carbon::today()->subDays(1)->format('l'));
+        $spec_stat['h-2'] = $this->dayTranslator(Carbon::today()->subDays(2)->format('l'));
+        $spec_stat['h-3'] = $this->dayTranslator(Carbon::today()->subDays(3)->format('l'));
+        $spec_stat['h-5'] = $this->dayTranslator(Carbon::today()->subDays(5)->format('l'));
+        $spec_stat['h-4'] = $this->dayTranslator(Carbon::today()->subDays(4)->format('l'));
+        $spec_stat['h-6'] = $this->dayTranslator(Carbon::today()->subDays(6)->format('l'));
+
         dd($spec_stat);
+
         return view('admin.statistik', ['stat' => $stat, 'spec_stat' => $spec_stat]);
     }
 
