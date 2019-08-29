@@ -477,7 +477,7 @@
                             labels: [stat['h-6'], stat['h-5'], stat['h-4'], stat['h-3'], stat['h-2'], stat['h-1'], 'Hari ini'],
                             datasets: [{
                                 label: 'Performance',
-                                data: [2, 2, 1, 2, 2, 2, 1]
+                                data: [0, 2, 1, 2, 1, 2, 1]
                                 // data: [stat['h-6_art'], stat['h-5_art'], stat['h-4_art'], stat['h-3_art'], stat['h-2_art'], stat['h-1_art'], stat['today_art']]
                             }]
                         }
