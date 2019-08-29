@@ -72,7 +72,7 @@ class AdminController extends Controller
         $spec_stat['h-4_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(4))->get());
         $spec_stat['h-5_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(5))->get());
         $spec_stat['h-6_art'] = count(Article::whereDate('created_at', Carbon::today()->subDays(6))->get());
-        Carbon::setLocale('id');
+        // Carbon::setLocale('id');
         $spec_stat['today'] = Carbon::today()->format('l');
         $spec_stat['h-1'] = Carbon::today()->subDays(1)->format('l');
         $spec_stat['h-2'] = Carbon::today()->subDays(2)->format('l');
