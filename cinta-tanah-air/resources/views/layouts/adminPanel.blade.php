@@ -426,6 +426,7 @@
         });
     </script>
 
+    @if (Request::is('admin/statistik'))
     <script>
         // Chart Stat Init
             var ArticleStatistic = (function () {
@@ -497,7 +498,7 @@
 
             })();
     </script>
-
+    @endif
 </body>
 
 </html>
