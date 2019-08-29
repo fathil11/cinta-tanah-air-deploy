@@ -141,6 +141,7 @@
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                         <tr>
+                            <th scope="col">Rank</th>
                             <th scope="col">Judul Artikel</th>
                             <th scope="col">Penulis</th>
                             <th scope="col">Tanggal</th>
@@ -148,8 +149,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($articles as $article)
+                        @foreach ($articles as $counter=>$article)
                         <tr>
+                            <th scope="row">
+                                {{ $key+1 }}
+                            </th>
                             <th scope="row">
                                 <a target="blank"
                                     href="{{ url('lihat-artikel') . '/' . $article->slug }}">{{ $article->title }}</a>
