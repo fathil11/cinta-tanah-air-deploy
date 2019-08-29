@@ -80,7 +80,7 @@ class AdminController extends Controller
         $spec_stat['h-4'] = Carbon::today()->subDays(4)->format('l');
         $spec_stat['h-5'] = Carbon::today()->subDays(5)->format('l');
         $spec_stat['h-6'] = Carbon::today()->subDays(6)->format('l');
-
+        dd($spec_stat);
         return view('admin.statistik', ['stat' => $stat, 'spec_stat' => $spec_stat]);
     }
 
