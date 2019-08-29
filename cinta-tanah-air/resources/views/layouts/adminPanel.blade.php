@@ -449,7 +449,7 @@
                                     },
                                     ticks: {
                                         callback: function (value) {
-                                            if (!(value % 2)) {
+                                            if (!(value % 1)) {
                                                 return value;
                                             }
                                         }
