@@ -424,7 +424,7 @@ class AdminController extends Controller
         $user = User::findOrFail(Auth::user()->id);
         $stat = $this->countStat();
 
-        return view('admin.profil', ['user' => $user]);
+        return view('admin.profil', ['user' => $user, 'stat' => $stat]);
     }
 
     public function editProfil(Request $request )
