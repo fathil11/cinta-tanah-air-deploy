@@ -141,83 +141,30 @@
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col">Artikel</th>
+                            <th scope="col">Judul Artikel</th>
+                            <th scope="col">Penulis</th>
+                            <th scope="col">Tanggal</th>
                             <th scope="col">Dilihat</th>
-                            <th scope="col">Pengunjung</th>
-                            <th scope="col">Rating Harian</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($articles as $article)
                         <tr>
                             <th scope="row">
-                                /argon/
+                                <a target="blank"
+                                    href="{{ url('author/lihat-artikel') . '/' . $article->id }}">{{ $article->title }}</a>
                             </th>
                             <td>
-                                4,569
+                                {{ $article->author->name }}
                             </td>
                             <td>
-                                340
+                                {{ date('d F, Y', strtotime($article->created_at)) }}
                             </td>
                             <td>
-                                <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
+                                {{ count($article->statistic) }}
                             </td>
                         </tr>
-                        <tr>
-                            <th scope="row">
-                                /argon/index.html
-                            </th>
-                            <td>
-                                3,985
-                            </td>
-                            <td>
-                                319
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                /argon/charts.html
-                            </th>
-                            <td>
-                                3,513
-                            </td>
-                            <td>
-                                294
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                /argon/tables.html
-                            </th>
-                            <td>
-                                2,050
-                            </td>
-                            <td>
-                                147
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                /argon/profile.html
-                            </th>
-                            <td>
-                                1,795
-                            </td>
-                            <td>
-                                190
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
