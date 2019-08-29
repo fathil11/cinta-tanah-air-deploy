@@ -473,7 +473,7 @@
                             }
                         },
                         data: {
-                            labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Hari ini'],
+                            labels: [stat['h-6'], stat['h-5'], stat['h-4'], stat['h-3'], stat['h-2'], stat['h-1'], 'Hari ini'],
                             datasets: [{
                                 label: 'Performance',
                                 data: [stat['h-6_art'], stat['h-5_art'], stat['h-4_art'], stat['h-3_art'], stat['h-2_art'], stat['h-1_art'], stat['today_art']]
