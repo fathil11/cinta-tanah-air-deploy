@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-6 col-xl-4">
-                    <div class="single-footer-widget footer_2">
+                    {{-- <div class="single-footer-widget footer_2">
                         <h4>Berlangganan</h4>
                         <p>Ikuti terus berita kami dengan cara menerima berita terbaru kami melalui email anda.</p>
                         <form action="#">
@@ -117,7 +117,7 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 

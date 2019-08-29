@@ -83,7 +83,7 @@
             </div>
         </aside>
 
-        <aside class="single_sidebar_widget newsletter_widget">
+        {{-- <aside class="single_sidebar_widget newsletter_widget">
             <h4 class="widget_title">Ikuti Setiap Berita Terbaru Kami</h4>
 
             <form action="#">
@@ -93,7 +93,7 @@
                 </div>
                 <button class="button rounded-0 primary-bg text-white w-100 btn_4" type="submit">Berlangganan</button>
             </form>
-        </aside>
+        </aside> --}}
     </div>
 </div>
 </div>
