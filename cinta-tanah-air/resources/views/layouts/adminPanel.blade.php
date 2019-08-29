@@ -425,7 +425,7 @@
 
         });
     </script>
-    @if (isset($cart_stat))
+
     <script>
         // Chart Stat Init
             var ArticleStatistic = (function () {
@@ -473,7 +473,7 @@
                             }
                         },
                         data: {
-                            labels: ['1', '2', '3', '4', '5', '6', 'Hari ini'],
+                            labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Hari ini'],
                             datasets: [{
                                 label: 'Performance',
                                 data: [stat['h-6_art'], stat['h-5_art'], stat['h-4_art'], stat['h-3_art'], stat['h-2_art'], stat['h-1_art'], stat['today_art']]
@@ -482,6 +482,7 @@
                     });
 
                     // Save to jQuery object
+
                     $chart.data('chart', articleChart);
 
                 };
@@ -496,7 +497,7 @@
 
             })();
     </script>
-    @endif
+
 </body>
 
 </html>
