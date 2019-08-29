@@ -99,11 +99,8 @@ class AdminController extends Controller
         $spec_stat['h-4'] = $this->dayTranslator(Carbon::today()->subDays(4)->format('l'));
         $spec_stat['h-6'] = $this->dayTranslator(Carbon::today()->subDays(6)->format('l'));
 
-        $article = Article::with('statistic')->withCount('statistic')->orderBy('article_id', 'desc')->take(2);
-        foreach($article as $tes){
-            var_dum($article);
-        }
-        dd();
+        $article = Article::with('statistic')->withCount('statistic')->orderBy('article_id', 'desc')->get();
+        dd($article);
         return view('admin.statistik', ['stat' => $stat, 'spec_stat' => $spec_stat]);
     }
 
