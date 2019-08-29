@@ -142,7 +142,7 @@ class HomeController extends Controller
 
     public function cariArtikel(Request $request)
     {
-        $articles = Article::where('title', 'like', $request->search)->get();
+        $articles = Article::where('title', 'like', $request->search)->paginate(5);
         $stat = $this->countStat();
 
         return view('home.berita', ['category' => $request->search, 'articles' => $articles,  'stat' => $stat]);
