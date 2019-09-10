@@ -117,7 +117,7 @@ class AdminController extends Controller
             'banner_path' => 'bail|image|mimes:jpeg,png,jpg,gif|max:10000',
             'article_type' => 'required',
             'cat' => 'nullable',
-            'editor' => 'bail|required|min:10|max:10000'
+            'editor' => 'bail|required|min:10|max:1000000'
         ]);
 
         $article = new Article();
