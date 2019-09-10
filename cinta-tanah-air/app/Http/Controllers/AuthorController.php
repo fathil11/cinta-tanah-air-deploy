@@ -74,7 +74,7 @@ class AuthorController extends Controller
             'banner_path' => 'bail|image|mimes:jpeg,png,jpg,gif|max:10000',
             'article_type' => 'required',
             'cat' => 'nullable',
-            'editor' => 'bail|required|min:10|max:1000000'
+            'editor' => 'bail|required|min:10'
         ]);
 
         $article = new Article();
@@ -168,11 +168,11 @@ class AuthorController extends Controller
         $article = Article::findOrFail($id);
 
         $request->validate([
-            'title' => 'required|min:5|max:50',
+            'title' => 'required|min:5|max:100',
             'banner_path' => 'bail|image|mimes:jpeg,png,jpg,gif|max:10000',
             'article_type' => 'required',
             'cat' => 'nullable',
-            'editor' => 'bail|required|min:30|max:10000'
+            'editor' => 'bail|required|min:30'
         ]);
         $article->title = $request->title;
         $article->slug = str_slug($request->title, '-');
