@@ -39,7 +39,7 @@
                             <div class="form-group">
                                 <b>Judul Artikel</b>
                                 <input type="text" class="form-control form-control-alternative custom-input-judul"
-                                    name="title" placeholder="Judul artikel ...">
+                                    name="title" placeholder="Judul artikel ..." value="{{ old('title') }}">
                             </div>
                         </div>
                     </div>
@@ -51,13 +51,13 @@
                             <b>Gambar Artikel</b>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input crop-artikel-js" id="customFileLang"
-                                    lang="en" name="banner_path">
+                                    lang="en" name="banner_path" value="{{ old('banner_path') }}">
                                 <label class="custom-file-label" for="customFileLang">Pilih gambar ...</label>
                             </div>
-                            <input type="hidden" name="x1" value="" />
-                            <input type="hidden" name="y1" value="" />
-                            <input type="hidden" name="w" value="" />
-                            <input type="hidden" name="h" value="" />
+                            <input type="hidden" name="x1" value="{{ old('x1') }}" />
+                            <input type="hidden" name="y1" value="{{ old('y1') }}" />
+                            <input type="hidden" name="w" value="{{ old('w') }}" />
+                            <input type="hidden" name="h" value="{{ old('h') }}" />
                             <br><br>
                             <img width="400" id="previewimage" style="display:none;" />
                         </div>
@@ -125,7 +125,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <b>Tulis Artikel</b>
-                            <textarea id="editor" name="editor" placeholder=""></textarea>
+                            <textarea id="editor" name="editor" placeholder="">{{ old('editor') }}</textarea>
                         </div>
                     </div>
                     <br>
