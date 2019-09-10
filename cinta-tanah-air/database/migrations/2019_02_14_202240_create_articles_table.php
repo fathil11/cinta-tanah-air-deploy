@@ -21,7 +21,7 @@ class CreateArticlesTable extends Migration
             $table->enum('type', ['berita', 'bertutur']);
             $table->string('slug')->unique()->default('Anonym');
             $table->string('banner_path')->default('default_blog.jpg');
-            $table->text('article', 5000);
+            $table->text('article', 10000);
             $table->integer('status')->default(2);
             $table->timestamps();
         });

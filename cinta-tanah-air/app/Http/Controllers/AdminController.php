@@ -113,7 +113,7 @@ class AdminController extends Controller
     public function buatArtikel(Request $request)
     {
         $request->validate([
-            'title' => 'required|min:5|max:50',
+            'title' => 'required|min:5|max:100',
             'banner_path' => 'bail|image|mimes:jpeg,png,jpg,gif|max:10000',
             'article_type' => 'required',
             'cat' => 'nullable',
