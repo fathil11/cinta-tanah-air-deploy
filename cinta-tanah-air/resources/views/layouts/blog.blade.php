@@ -73,7 +73,7 @@
                             src="{{ url('cinta-tanah-air/public/img/blog') . '/' . $art->banner_path }}" alt="post">
                     </div>
                     <div class="media-body">
-                        <a href="{{ url('lihat-artikel') . $art->slug }}">
+                        <a href="{{ url('lihat-artikel') . '/' . $art->slug }}">
                             <h3>{{ $art->title }}</h3>
                         </a>
                         <p>{{ date('d F Y', strtotime($art->created_at)) }}</p>
