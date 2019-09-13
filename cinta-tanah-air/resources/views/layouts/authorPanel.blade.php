@@ -336,7 +336,7 @@
             if($('#editor').length != 0){
                 var editor = new Jodit("#editor", {
                     "spellcheck": false,
-                    "buttons": "paragraph,,,,,,,|,fontsize,,brush,|,indent,,align,,ul,ol,|,image,video,table,link,|,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall,print"
+                    "buttons": "paragraph,bold,italic,underline,strikethrough,,,|,fontsize,,brush,|,indent,,align,,ul,ol,|,image,video,table,link,|,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall,print"
                 });
             }
         });
