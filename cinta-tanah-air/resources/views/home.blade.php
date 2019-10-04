@@ -215,7 +215,7 @@
                                                 $tny_art = new HtmlToText($articles[1]->article);
                                                 $tny_art = $tny_art->getText();
                                                 @endphp
-                                                {{ substr($tny_art, 0, 100) . "..." }}</p>
+                                                {{ substr($tny_art, 0, 50) . "..." }}</p>
                                         </a>
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center">
@@ -253,7 +253,7 @@
                                                 $tny_art = new HtmlToText($articles[2]->article);
                                                 $tny_art = $tny_art->getText();
                                                 @endphp
-                                                {{ substr($tny_art, 0, 100) . "..." }}</p>
+                                                {{ substr($tny_art, 0, 50) . "..." }}</p>
                                         </a>
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center">
