@@ -174,7 +174,7 @@
                                             $tny_art = new HtmlToText($article->article);
                                             $tny_art = $tny_art->getText();
                                             @endphp
-                                            {{ substr($tny_art, 0, 150) . "..." }}</p>
+                                            {{ substr($tny_art, 0, 250) . "..." }}</p>
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center">
                                             <a href="#" class="post-like"><img src="img/core-img/like.png" alt="">
