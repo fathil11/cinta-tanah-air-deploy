@@ -75,10 +75,10 @@ class HomeController extends Controller
 
     public function showHome()
     {
-
+        $articles = Article::where([['type', 'berita'], ['status', 1]])->paginate(5);
         $stat = $this->countStat();
 
-        return view('home', ['stat' => $stat]);
+        return view('home', ['stat' => $stat, 'articles' => $articles]);
     }
 
     public function getUserIpAddr(){
