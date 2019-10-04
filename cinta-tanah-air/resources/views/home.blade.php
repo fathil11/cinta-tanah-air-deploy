@@ -26,8 +26,8 @@
 
 <body>
     {{-- <div class="preloader"> --}}
-    <video playsinline="playsinline" loop="loop" width="100%" height="100%" preload="auto">
-        <source src="{{ asset('scenic__hero.webm') }}" type="video/webm">
+    <video playsinline="playsinline" loop="loop" width="50%" height="50%" preload="auto">
+        <source src="{{ asset('scenic__hero.webm') }}" type="video/webm" autoplay>
     </video>
     {{-- </div> --}}
     <!-- ##### Header Area Start ##### -->
