@@ -478,6 +478,7 @@
                             <div class="footer-logo">
                                 <a href="index.html"><img src="{{ asset('home/logo.png') }}" alt=""></a>
                             </div>
+
                             <!-- List -->
                             <ul class="list">
                                 <li><a href="mailto:contact@youremail.com">E-mail : info@cintatanahair.id</a></li>
