@@ -117,7 +117,7 @@ class HomeController extends Controller
 
     public function openArticle($slug)
     {
-        $article = Article::where([['status', 1], ['slug', $slug]])->first();
+        $article = Article::where('slug', $slug)->first();
 
         // Posted Validate
         if($article->status != 1){
