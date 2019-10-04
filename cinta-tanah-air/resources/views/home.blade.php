@@ -20,9 +20,14 @@
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/custom-index.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('css/coba-preloader.css') }}">
+
 </head>
 
 <body>
+    <div class="preloader">
+        <video src="{{ asset('scenic_hero.webm') }}" loop="loop" width="100%" height="100%" preload="auto"></video>
+    </div>
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
 
