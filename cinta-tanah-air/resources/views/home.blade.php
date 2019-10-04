@@ -180,7 +180,7 @@
                                         <div class="d-flex align-items-center">
                                             <a href="#" class="post-like"><img src="{{ asset('img/icon/view.png') }}"
                                                     alt="">
-                                                <span>{{ count($articles[0]->statistic) }}</span></a>
+                                                <span>{{ count($articles[0]->statistic) }} View</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -191,28 +191,72 @@
                             <!-- Single Featured Post -->
                             <div class="single-blog-post featured-post-2">
                                 <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/17.jpg" alt=""></a>
+                                    <a href="{{ url('lihat-artikel') . '/' . $articles[1]->slug }}"><img
+                                            src="{{ url('cinta-tanah-air/public/img/blog') . '/' . $articles[1]->banner_path }}"
+                                            alt=""></a>
                                 </div>
                                 <div class="post-data">
-                                    <a href="#" class="post-catagory">Finance</a>
+                                    <a href="{{ url('lihat-artikel') . '/' . $articles[1]->slug }}"
+                                        class="post-catagory">
+                                        @php
+                                        $temp = array();
+                                        foreach($articles[1]->category as $cats){
+                                        $temp[] = $cats->category;
+                                        }
+                                        $cat = implode(',', $temp)
+                                        @endphp
+                                        {{ $cat }}
+                                    </a>
                                     <div class="post-meta">
-                                        <a href="#" class="post-title">
-                                            <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu metus
-                                                sit amet odio sodales placerat. Sed varius leo ac...</h6>
+                                        <a href="{{ url('lihat-artikel') . '/' . $articles[1]->slug }}"
+                                            class="post-title">
+                                            <h6>{{ $articles[1]->title }}</h6>
                                         </a>
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center">
-                                            <a href="#" class="post-like"><img src="img/core-img/like.png" alt="">
-                                                <span>392</span></a>
-                                            <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt="">
-                                                <span>10</span></a>
+                                            <a href="#" class="post-like"><img src="{{ asset('img/icon/view.png') }}"
+                                                    alt="">
+                                                <span>{{ count($articles[1]->statistic) }} View</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="single-blog-post featured-post-2">
+                                <div class="post-thumb">
+                                    <a href="{{ url('lihat-artikel') . '/' . $articles[2]->slug }}"><img
+                                            src="{{ url('cinta-tanah-air/public/img/blog') . '/' . $articles[2]->banner_path }}"
+                                            alt=""></a>
+                                </div>
+                                <div class="post-data">
+                                    <a href="{{ url('lihat-artikel') . '/' . $articles[2]->slug }}"
+                                        class="post-catagory">
+                                        @php
+                                        $temp = array();
+                                        foreach($articles[2]->category as $cats){
+                                        $temp[] = $cats->category;
+                                        }
+                                        $cat = implode(',', $temp)
+                                        @endphp
+                                        {{ $cat }}
+                                    </a>
+                                    <div class="post-meta">
+                                        <a href="{{ url('lihat-artikel') . '/' . $articles[2]->slug }}"
+                                            class="post-title">
+                                            <h6>{{ $articles[2]->title }}</h6>
+                                        </a>
+                                        <!-- Post Like & Post Comment -->
+                                        <div class="d-flex align-items-center">
+                                            <a href="#" class="post-like"><img src="{{ asset('img/icon/view.png') }}"
+                                                    alt="">
+                                                <span>{{ count($articles[2]->statistic) }} View</span></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Single Featured Post -->
-                            <div class="single-blog-post featured-post-2">
+                            {{-- <div class="single-blog-post featured-post-2">
                                 <div class="post-thumb">
                                     <a href="#"><img src="img/bg-img/18.jpg" alt=""></a>
                                 </div>
@@ -232,7 +276,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
