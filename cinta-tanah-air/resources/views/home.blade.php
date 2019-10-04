@@ -34,7 +34,7 @@
                         <div class="top-header-content d-flex align-items-center justify-content-between">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="index.html"><img src="{{ asset('img/home/logo.png') }}" alt=""></a>
+                                <a href="{{ url('/') }}"><img src="{{ asset('img/home/logo.png') }}" alt=""></a>
                             </div>
 
                             <!-- Login Search Area -->
@@ -63,7 +63,7 @@
 
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="{{ asset('img/home/logo.png') }}" alt=""></a>
+                            <a href="{{ url('/') }}"><img src="{{ asset('img/home/logo.png') }}" alt=""></a>
                         </div>
 
                         <!-- Navbar Toggler -->
