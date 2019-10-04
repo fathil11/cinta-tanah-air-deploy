@@ -25,11 +25,11 @@
 </head>
 
 <body>
-    <div class="preloader">
-        <video class="vid-test" playsinline="playsinline" loop="loop" width="50%" height="50%" preload="auto" autoplay>
-            <source src="{{ asset('scenic__hero.webm') }}" type="video/webm">
-        </video>
-    </div>
+    {{-- <div class="preloader"> --}}
+    <video class="vid-test" playsinline="playsinline" loop="loop" width="50%" height="50%" preload="auto" autoplay>
+        <source src="{{ asset('scenic__hero.webm') }}" type="video/webm">
+    </video>
+    {{-- </div> --}}
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
 
