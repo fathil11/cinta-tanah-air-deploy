@@ -148,12 +148,13 @@
                         <div class="col-12 col-lg-7">
                             <div class="single-blog-post featured-post">
                                 <div class="post-thumb">
-                                    <a href="#"><img
+                                    <a href="{{ url('lihat-artikel') . '/' . $articles[0]->slug }}"><img
                                             src="{{ url('cinta-tanah-air/public/img/blog') . '/' . $articles[0]->banner_path }}"
                                             alt=""></a>
                                 </div>
                                 <div class="post-data">
-                                    <a href="#" class="post-catagory">
+                                    <a href="{{ url('lihat-artikel') . '/' . $articles[0]->slug }}"
+                                        class="post-catagory">
                                         @php
                                         $temp = array();
                                         foreach($articles[0]->category as $cats){
@@ -162,7 +163,7 @@
                                         $cat = implode(',', $temp)
                                         @endphp
                                         {{ $cat }}</a>
-                                    <a href="#" class="post-title">
+                                    <a href="{{ url('lihat-artikel') . '/' . $articles[0]->slug }}" class="post-title">
                                         <h6>{{ $articles[0]->title }}</h6>
                                     </a>
                                     <div class="post-meta">
