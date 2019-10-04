@@ -379,9 +379,9 @@
 
                             <!-- List -->
                             <ul class="list">
-                                <li><a href="mailto:contact@youremail.com">E-mail : info@cintatanahair.id</a></li>
-                                <li><a href="tel:+4352782883884">Telp : 0812-2870-3110</a></li>
-                                <li><a href="https://cintatanahair.id">Site : cintatanahair.id</a></li>
+                                <li><a href="mailto:info@cintatanahair.id">E-mail : info@cintatanahair.id</a></li>
+                                <li><a href="tel:+62812-2870-3110">Telp : 0812-2870-3110</a></li>
+                                <li><a href="https://cintatanahair.id">Situs : cintatanahair.id</a></li>
                             </ul>
                         </div>
                     </div>
