@@ -38,7 +38,7 @@ class HomeController extends Controller
 
         $category_set = ['budaya', 'pemberdayaan', 'pendidikan', 'sosial', 'hukum'];
         foreach ($category_set as $cat_srch) {
-            $cat_article_count[$cat_srch] = count(ArticleCategory::where([['status', 1], ['category', $cat_srch]])->get());
+            $cat_article_count[$cat_srch] = count(ArticleCategory::where('category', $cat_srch)->get());
         }
 
         $view_per_day_count = count(ArticleStatistic::select('viewer_ip')->whereDate('created_at', date("Y-m-d"))->distinct()->get());
