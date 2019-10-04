@@ -211,7 +211,7 @@
                                         <a href="{{ url('lihat-artikel') . '/' . $articles[1]->slug }}"
                                             class="post-title">
                                             <h6>{{ $articles[1]->title }}</h6>
-                                            <p class="post-excerp">@php
+                                            <p class="post-excerp" style="margin-bottom: 0.1rem;">@php
                                                 $tny_art = new HtmlToText($articles[1]->article);
                                                 $tny_art = $tny_art->getText();
                                                 @endphp
@@ -249,7 +249,7 @@
                                         <a href="{{ url('lihat-artikel') . '/' . $articles[2]->slug }}"
                                             class="post-title">
                                             <h6>{{ $articles[2]->title }}</h6>
-                                            <p class="post-excerp">@php
+                                            <p class="post-excerp" style="margin-bottom: 0.1rem;">@php
                                                 $tny_art = new HtmlToText($articles[2]->article);
                                                 $tny_art = $tny_art->getText();
                                                 @endphp
