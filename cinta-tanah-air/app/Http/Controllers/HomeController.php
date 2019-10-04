@@ -38,7 +38,7 @@ class HomeController extends Controller
 
         $category_set = ['budaya', 'pemberdayaan', 'pendidikan', 'sosial', 'hukum'];
         foreach ($category_set as $cat_srch) {
-            $cat_article_count[$cat_srch] = count(ArticleCategory::where('category', $cat_srch)->get());
+            $cat_article_count[$cat_srch] = count(ArticleCategory::where([['status', 1], ['category', $cat_srch]])->get());
         }
 
         $view_per_day_count = count(ArticleStatistic::select('viewer_ip')->whereDate('created_at', date("Y-m-d"))->distinct()->get());
@@ -117,7 +117,7 @@ class HomeController extends Controller
 
     public function openArticle($slug)
     {
-        $article = Article::where('slug', $slug)->first();
+        $article = Article::where([['status', 1], ['slug', $slug]])->first();
 
         // Posted Validate
         if($article->status != 1){
@@ -143,7 +143,7 @@ class HomeController extends Controller
 
     public function cariArtikel(Request $request)
     {
-        $articles = Article::where('title', 'LIKE', '%' .$request->search . '%')->paginate(5);
+        $articles = Article::where([['status', 1],['title', 'LIKE', '%' .$request->search . '%']])->paginate(5);
         $stat = $this->countStat();
 
         return view('home.berita', ['category' => $request->search, 'articles' => $articles,  'stat' => $stat]);
