@@ -81,19 +81,19 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="index.html">Beranda</a></li>
+                                    <li class="active"><a href="{{ url('/') }}">Beranda</a></li>
                                     <li><a href="#">Berita</a>
                                         <ul class="dropdown">
-                                            <li><a href="index.html">Semua Berita</a></li>
-                                            <li><a href="catagories-post.html">Budaya</a></li>
-                                            <li><a href="single-post.html">Pemberdayaan</a></li>
-                                            <li><a href="about.html">Pendidikan</a></li>
-                                            <li><a href="contact.html">Sosial</a></li>
-                                            <li><a href="contact.html">Hukum</a></li>
+                                            <li><a href="{{ url('/berita') }}">Semua Berita</a></li>
+                                            <li><a href="{{ url('/berita/budaya') }}">Budaya</a></li>
+                                            <li><a href="{{ url('/berita/pemberdayaan') }}">Pemberdayaan</a></li>
+                                            <li><a href="{{ url('/berita/pendidikan') }}">Pendidikan</a></li>
+                                            <li><a href="{{ url('/berita/sosial') }}">Sosial</a></li>
+                                            <li><a href="{{ url('/berita/hukum') }}">Hukum</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">Bertutur</a></li>
-                                    <li><a href="contact.html">Profil</a></li>
+                                    <li><a href="{{ url('/bertutur') }}">Bertutur</a></li>
+                                    <li><a href="{{ url('/profil') }}">Profil</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -117,9 +117,15 @@
                         </div>
                         <div id="breakingNewsTicker" class="ticker">
                             <ul>
-                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                                <li><a href="#">Welcome to Colorlib Family.</a></li>
-                                <li><a href="#">Nam eu metus sitsit amet, consec!</a></li>
+                                @if ($stat['top_3_articles']->isEmpty())
+                                <h3>Maaf, belum ada berita hari ini.</h3>
+                                @else
+                                @foreach ($stat['top_3_articles'] as $article)
+                                <li><a
+                                        href="{{ url('lihat-artikel') . '/' . $article->slug }}">{{ $article->title }}</a>
+                                </li>
+                                @endforeach
+                                @endif
                             </ul>
                         </div>
                     </div>

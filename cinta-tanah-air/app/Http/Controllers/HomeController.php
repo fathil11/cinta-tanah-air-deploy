@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function countStat()
     {
-        $top_3_articles = Article::where('status', 1)->whereDate('created_at', date("Y-m-d"))->get()->take(3);
+        $top_3_articles = Article::where('status', 1)->get()->take(3);
 
         $article_count = count(Article::all());
 
