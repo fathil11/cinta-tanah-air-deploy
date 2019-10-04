@@ -41,8 +41,9 @@
                             <div class="login-search-area d-flex align-items-center">
                                 <!-- Search Form -->
                                 <div class="search-form">
-                                    <form action="#" method="post" autocomplete="off">
-                                        <input type="search" name="search" class="form-control" placeholder="Search">
+                                    <form action="{{ url('cari-artikel') }}" method="POST" autocomplete="off">
+                                        @csrf
+                                        <input type="search" name="search" class="form-control" placeholder="Cari berita ...">
                                         <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                     </form>
                                 </div>
