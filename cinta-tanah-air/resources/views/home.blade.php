@@ -167,12 +167,12 @@
                                         <h6>{{ $articles[0]->title }}</h6>
                                     </a>
                                     <div class="post-meta">
-                                        <p class="post-author">By <a href="#">{{ $article->author->name }}
-                                                @if ($article->author->role == 1)
+                                        <p class="post-author">By <a href="#">{{ $articles[0]->author->name }}
+                                                @if ($articles[0]->author->role == 1)
                                                 (Admin)
                                                 @endif</a></p>
                                         <p class="post-excerp">@php
-                                            $tny_art = new HtmlToText($article->article);
+                                            $tny_art = new HtmlToText($articles[0]->article);
                                             $tny_art = $tny_art->getText();
                                             @endphp
                                             {{ substr($tny_art, 0, 250) . "..." }}</p>
@@ -211,6 +211,11 @@
                                         <a href="{{ url('lihat-artikel') . '/' . $articles[1]->slug }}"
                                             class="post-title">
                                             <h6>{{ $articles[1]->title }}</h6>
+                                            <p class="post-excerp">@php
+                                                $tny_art = new HtmlToText($articles[1]->article);
+                                                $tny_art = $tny_art->getText();
+                                                @endphp
+                                                {{ substr($tny_art, 0, 150) . "..." }}</p>
                                         </a>
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center">
@@ -244,6 +249,11 @@
                                         <a href="{{ url('lihat-artikel') . '/' . $articles[2]->slug }}"
                                             class="post-title">
                                             <h6>{{ $articles[2]->title }}</h6>
+                                            <p class="post-excerp">@php
+                                                $tny_art = new HtmlToText($articles[2]->article);
+                                                $tny_art = $tny_art->getText();
+                                                @endphp
+                                                {{ substr($tny_art, 0, 150) . "..." }}</p>
                                         </a>
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center">
