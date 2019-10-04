@@ -78,7 +78,7 @@ class HomeController extends Controller
 
         $stat = $this->countStat();
 
-        return view('home.home', ['stat' => $stat]);
+        return view('home', ['stat' => $stat]);
     }
 
     public function getUserIpAddr(){
