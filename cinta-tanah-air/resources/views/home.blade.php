@@ -249,7 +249,8 @@
                                         <a href="{{ url('lihat-artikel') . '/' . $articles[2]->slug }}"
                                             class="post-title">
                                             <h6>{{ $articles[2]->title }}</h6>
-                                            <p class="post-excerp" style="margin-bottom: 0.1rem;">@php
+                                            <p class="post-excerp" style="margin-bottom: 0.1rem;">
+                                                @php
                                                 $tny_art = new HtmlToText($articles[2]->article);
                                                 $tny_art = $tny_art->getText();
                                                 @endphp
@@ -316,118 +317,43 @@
                 <!-- Editors Pick -->
                 <div class="col-12 col-md-12 col-lg-12">
                     <div class="section-heading">
-                        <h6>Berita Lainnya</h6>
+                        <h6>Berita Terpopuler</h6>
                     </div>
 
                     <div class="row">
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/1.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
+                    @foreach ($popular_articles as $key=>$article)
+                    @if ($key < 6)
+                    <div class="col-12 col-lg-4">
+                        <div class="single-blog-post">
+                            <div class="post-thumb">
+                                <a href="{{ url('lihat-artikel') . '/' . $article->slug }}"><img src="{{ url('cinta-tanah-air/public/img/blog') . '/' . $article->banner_path }}" alt=""></a>
                             </div>
-                        </div>
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/2.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/3.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/4.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/5.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/6.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
+                            <div class="post-data">
+                                <a href="{{ url('lihat-artikel') . '/' . $article->slug }}" class="post-title">
+                                    <h6>{{ $article->title }}</h6>
+                                    <p>
+                                        @php
+                                        $tny_art = new HtmlToText($article->article);
+                                        $tny_art = $tny_art->getText();
+                                        @endphp
+                                        {{ substr($tny_art, 0, 100) . "..." }}</p>
+                                    </p>
+                                </a>
+                                <div class="post-meta">
+                                    <div class="post-date"><a href="{{ url('lihat-artikel') . '/' . $article->slug }}">February 11, 2018</a></div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endif
+                    @endforeach
+
                 </div>
-
-
             </div>
+
+
         </div>
+    </div>
     </div>
     <!-- ##### Editorial Post Area End ##### -->
 

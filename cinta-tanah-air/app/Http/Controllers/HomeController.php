@@ -78,7 +78,8 @@ class HomeController extends Controller
         $articles = Article::where([['type', 'berita'], ['status', 1]])->get();
         $stat = $this->countStat();
 
-        return view('home', ['stat' => $stat, 'articles' => $articles]);
+        $popular_articles = Article::with('statistic')->withCount('statistic')->get();
+        return view('home', ['stat' => $stat, 'articles' => $articles, 'popular_articles' => $popular_articles]);
     }
 
     public function getUserIpAddr(){
