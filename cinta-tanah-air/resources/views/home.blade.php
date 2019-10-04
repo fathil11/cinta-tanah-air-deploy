@@ -9,10 +9,10 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>The News Paper - News &amp; Lifestyle Magazine Template</title>
+    <title>Cinta Tanah Air</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="icon" href="{{ asset('img/favicon.png') }}">
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/index-css.css') }}">
@@ -34,7 +34,7 @@
                         <div class="top-header-content d-flex align-items-center justify-content-between">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                                <a href="index.html"><img src="{{ asset('home/logo.png') }}" alt=""></a>
                             </div>
 
                             <!-- Login Search Area -->
