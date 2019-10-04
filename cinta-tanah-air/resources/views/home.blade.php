@@ -148,20 +148,33 @@
                         <div class="col-12 col-lg-7">
                             <div class="single-blog-post featured-post">
                                 <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/16.jpg" alt=""></a>
+                                    <a href="#"><img
+                                            src="{{ url('cinta-tanah-air/public/img/blog') . '/' . $articles[0]->banner_path }}"
+                                            alt=""></a>
                                 </div>
                                 <div class="post-data">
-                                    <a href="#" class="post-catagory">Finance</a>
+                                    <a href="#" class="post-catagory">
+                                        @php
+                                        $temp = array();
+                                        foreach($articles[0]->category as $cats){
+                                        $temp[] = $cats->category;
+                                        }
+                                        $cat = implode(',', $temp)
+                                        @endphp
+                                        {{ $cat }}</a>
                                     <a href="#" class="post-title">
-                                        <h6>Financial news: A new company is born today at the stock market</h6>
+                                        <h6>{{ $articles[0]->title }}</h6>
                                     </a>
                                     <div class="post-meta">
-                                        <p class="post-author">By <a href="#">Christinne Williams</a></p>
-                                        <p class="post-excerp">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam eu metus sit amet odio sodales placerat. Sed varius leo ac leo
-                                            fermentum, eu cursus nunc maximus. Integer convallis nisi nibh, et ornare
-                                            neque ullamcorper ac. Nam id congue lectus, a venenatis massa. Maecenas
-                                            justo libero, vulputate vel nunc id, blandit feugiat sem. </p>
+                                        <p class="post-author">By <a href="#">{{ $article->author->name }}
+                                                @if ($article->author->role == 1)
+                                                (Admin)
+                                                @endif</a></p>
+                                        <p class="post-excerp">@php
+                                            $tny_art = new HtmlToText($article->article);
+                                            $tny_art = $tny_art->getText();
+                                            @endphp
+                                            {{ substr($tny_art, 0, 150) . "..." }}</p>
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center">
                                             <a href="#" class="post-like"><img src="img/core-img/like.png" alt="">
