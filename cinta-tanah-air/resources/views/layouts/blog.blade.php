@@ -13,7 +13,7 @@
 <div class="col-lg-4">
     <div class="blog_right_sidebar">
         <aside class="single_sidebar_widget search_widget">
-            <form action="{{ url('cari-artikel') }}" method="POST">
+            <form action="{{ url('cari-artikel') }}" method="POST" autocomplete="off">
                 @csrf
                 <div class="form-group">
                     <div class="input-group mb-3">
