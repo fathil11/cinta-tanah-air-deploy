@@ -34,3 +34,8 @@
     background: white;
     transition: 1s;
 }
+
+.vid-test {
+    position: absolute;
+    z-index: 3;
+}
