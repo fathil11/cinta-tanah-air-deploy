@@ -178,10 +178,9 @@
                                             {{ substr($tny_art, 0, 250) . "..." }}</p>
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center">
-                                            <a href="#" class="post-like"><img src="img/core-img/like.png" alt="">
-                                                <span>392</span></a>
-                                            <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt="">
-                                                <span>10</span></a>
+                                            <a href="#" class="post-like"><img src="{{ asset('img/icon/view.png') }}"
+                                                    alt="">
+                                                <span>{{ count($articles[0]->statistic) }}</span></a>
                                         </div>
                                     </div>
                                 </div>
