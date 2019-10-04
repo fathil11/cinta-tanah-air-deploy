@@ -278,7 +278,7 @@
                                     alt="gambar_artikel"></a>
                         </div>
                         <div class="post-data">
-                            <a href="#" class="post-catagory">
+                            <a href="{{ url('lihat-artikel') . '/' . $article->slug }}" class="post-catagory">
                                 @php
                                 $temp = array();
                                 foreach($article->category as $cats){
@@ -289,7 +289,7 @@
                                 {{ $cat }}
                             </a>
                             <div class="post-meta">
-                                <a href="#" class="post-title">
+                                <a href="{{ url('lihat-artikel') . '/' . $article->slug }}" class="post-title">
                                     <h6>{{ $article->title }}</h6>
                                 </a>
                                 <p class="post-date"><span>{{ date('h:i A', strtotime($article->created_at)) }}</span> |
@@ -447,14 +447,14 @@
                         <div class="footer-widget-area mt-80">
                             <!-- Footer Logo -->
                             <div class="footer-logo">
-                                <a href="index.html"><img src="{{ asset('img/home/logo.png') }}" alt=""></a>
+                                <a href="{{ url('/') }}"><img src="{{ asset('img/home/logo.png') }}" alt=""></a>
                             </div>
 
                             <!-- List -->
                             <ul class="list">
                                 <li><a href="mailto:contact@youremail.com">E-mail : info@cintatanahair.id</a></li>
                                 <li><a href="tel:+4352782883884">Telp : 0812-2870-3110</a></li>
-                                <li><a href="http://cintatanahair.id">Site : cintatanahair.id</a></li>
+                                <li><a href="https://cintatanahair.id">Site : cintatanahair.id</a></li>
                             </ul>
                         </div>
                     </div>
