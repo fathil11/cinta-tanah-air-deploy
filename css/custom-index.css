@@ -5,3 +5,11 @@
 .section-heading {
     margin-bottom: 10px;
 }
+
+.single-blog-post.featured-post .post-data .post-excerp {
+    margin-bottom: 15px;
+}
+
+.single-blog-post.featured-post-2 .post-data .post-title h6 {
+    margin-bottom: 5px;
+}
