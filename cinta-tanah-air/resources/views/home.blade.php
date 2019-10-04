@@ -129,20 +129,6 @@
                             </ul>
                         </div>
                     </div>
-
-                    <!-- Breaking News Widget -->
-                    <div class="breaking-news-area d-flex align-items-center mt-15">
-                        <div class="news-title title2">
-                            <p>Berita Terpopuler</p>
-                        </div>
-                        <div id="internationalTicker" class="ticker">
-                            <ul>
-                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                                <li><a href="#">Welcome to Colorlib Family.</a></li>
-                                <li><a href="#">Nam eu metus sitsit amet, consec!</a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
 
 
