@@ -75,7 +75,7 @@ class HomeController extends Controller
 
     public function showHome()
     {
-        $articles = Article::where([['type', 'berita'], ['status', 1]])->paginate(5);
+        $articles = Article::where('status', 1);
         $stat = $this->countStat();
 
         return view('home', ['stat' => $stat, 'articles' => $articles]);
