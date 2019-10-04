@@ -62,7 +62,7 @@
 
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                            <a href="index.html"><img src="{{ asset('home/logo.png') }}" alt=""></a>
                         </div>
 
                         <!-- Navbar Toggler -->
@@ -476,7 +476,7 @@
                         <div class="footer-widget-area mt-80">
                             <!-- Footer Logo -->
                             <div class="footer-logo">
-                                <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                                <a href="index.html"><img src="{{ asset('home/logo.png') }}" alt=""></a>
                             </div>
                             <!-- List -->
                             <ul class="list">
