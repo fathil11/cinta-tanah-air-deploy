@@ -271,7 +271,7 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <!-- Single Featured Post -->
                     @foreach ($articles as $key => $article)
-                    @if ($key > 2 && $key < 7) <div class="single-blog-post small-featured-post d-flex">
+                    @if ($key > 2 && $key < 8) <div class="single-blog-post small-featured-post d-flex">
                         <div class="post-thumb">
                             <a href="{{ url('lihat-artikel') . '/' . $article->slug }}"><img
                                     src="{{ url('cinta-tanah-air/public/img/blog') . '/' . $article->banner_path }}"
