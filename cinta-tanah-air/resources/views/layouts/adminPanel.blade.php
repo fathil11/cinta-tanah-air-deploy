@@ -428,6 +428,9 @@
             // WYSIWYG Init
             if ($('#editor').length != 0) {
                 var editor = new Jodit("#editor", {
+                    "uploader": {
+                        "insertImageAsBase64URI": true
+                    },
                     "spellcheck": false,
                     "buttons": "paragraph,bold,italic,underline,strikethrough,,,|,fontsize,,brush,|,indent,,align,,ul,ol,|,image,video,table,link,|,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall,print"
                 });
@@ -439,17 +442,6 @@
 
     @if (Request::is('admin/statistik'))
     <script>
-        $(document).ready( function () {
-            if($('#editor').length != 0){
-                var editor = new Jodit("#editor", {
-                    "uploader": {
-                        "insertImageAsBase64URI": true
-                    },
-                    "spellcheck": false,
-                    "buttons": "paragraph,bold,italic,underline,strikethrough,,,|,fontsize,,brush,|,indent,,align,,ul,ol,|,image,video,table,link,|,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall,print"
-                });
-            }
-        });
         // Chart Stat Init
             var ArticleStatistic = (function () {
 
