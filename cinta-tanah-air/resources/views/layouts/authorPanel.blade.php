@@ -337,7 +337,7 @@
                 var editor = new Jodit("#editor", {
                     "uploader": {
                         "insertImageAsBase64URI": true
-                    }
+                    },
                     "spellcheck": false,
                     "buttons": "paragraph,bold,italic,underline,strikethrough,,,|,fontsize,,brush,|,indent,,align,,ul,ol,|,image,video,table,link,|,undo,redo,\n,cut,hr,eraser,copyformat,|,symbol,fullsize,selectall,print"
                 });
