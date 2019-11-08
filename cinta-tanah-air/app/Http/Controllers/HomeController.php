@@ -78,7 +78,7 @@ class HomeController extends Controller
         $articles = Article::where([['type', 'berita'], ['status', 1]])->get();
         $stat = $this->countStat();
 
-        $popular_articles = Article::with('statistic')->withCount('statistic')->get();
+        $popular_articles = Article::with('statistic')->withCount('statistic')->orderBy('statistic_count', 'desc')->get();
         return view('home', ['stat' => $stat, 'articles' => $articles, 'popular_articles' => $popular_articles]);
     }
 
